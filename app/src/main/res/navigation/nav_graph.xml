@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StartFragment"
+        tools:layout="@layout/fragment_start"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_startFragment_to_authorsFragment"
+            app:destination="@id/authorsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorsFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.AuthorsFragment"
+        tools:layout="@layout/fragment_authors"
+        android:label="AuthorsFragment" />
+</navigation>

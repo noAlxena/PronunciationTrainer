@@ -1,10 +1,10 @@
-package com.alxena.pronunciationtrainer
+package com.alxena.pronunciationtrainer.ui.activity
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import com.alxena.pronunciationtrainer.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
