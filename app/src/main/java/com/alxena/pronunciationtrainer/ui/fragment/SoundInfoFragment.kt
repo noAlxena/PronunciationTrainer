@@ -19,6 +19,12 @@ class SoundInfoFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.web.loadUrl("file:///android_asset/asset.html")
+        binding.web.settings.apply {
+            javaScriptEnabled = true
+            loadWithOverviewMode = true
+        }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()
