@@ -21,6 +21,12 @@ class StartFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment_to_soundTrainFragment)
+        }
+        binding.button3.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment_to_soundInfoFragment)
+        }
+        binding.button4.setOnClickListener{
             findNavController().navigate(R.id.action_startFragment_to_authorsFragment)
         }
     }

@@ -9,14 +9,33 @@
         android:id="@+id/startFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.StartFragment"
         tools:layout="@layout/fragment_start"
-        android:label="StartFragment" >
+        android:label="StartFragment">
         <action
             android:id="@+id/action_startFragment_to_authorsFragment"
-            app:destination="@id/authorsFragment" />
+            app:destination="@id/authorsFragment"
+            app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_soundTrainFragment"
+            app:destination="@id/soundTrainFragment"
+            app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_soundInfoFragment"
+            app:destination="@id/soundInfoFragment"
+            app:popUpTo="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorsFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.AuthorsFragment"
         tools:layout="@layout/fragment_authors"
         android:label="AuthorsFragment" />
+    <fragment
+        android:id="@+id/soundTrainFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.SoundTrainFragment"
+        android:label="fragment_sound_train"
+        tools:layout="@layout/fragment_sound_train" />
+    <fragment
+        android:id="@+id/soundInfoFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.SoundInfoFragment"
+        android:label="fragment_sound_info"
+        tools:layout="@layout/fragment_sound_info" />
 </navigation>
