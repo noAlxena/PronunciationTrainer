@@ -5,8 +5,10 @@
     <string name="info">справочник</string>
     <string name="options">настройки</string>
     <string name="authors">авторы</string>
-    <string name="autor1">алексеев никита андреевич, группа 151112</string>
-    <string name="autor2">малыгин алексей андреевич, группа 151112</string>
+    <string name="authors_title">разработчики приложения</string>
+    <string name="autor1">Алексеев Никита Андреевич, группа 151112</string>
+    <string name="autor2">Малыгин Алексей Андреевич, группа 151112</string>
     <string name="vowels">Гласные звуки</string>
     <string name="consonants">Согласные звуки</string>
+    <string name="reset">Сбросить прогресс</string>
 </resources>

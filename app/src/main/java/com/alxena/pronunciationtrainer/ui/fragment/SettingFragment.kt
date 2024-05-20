@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.alxena.pronunciationtrainer.databinding.FragmentSettingsBinding
+import com.alxena.pronunciationtrainer.ui.viewmodel.SettingViewModel
 
 class SettingFragment: Fragment() {
+    private val viewModel: SettingViewModel by viewModels()
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -19,6 +23,9 @@ class SettingFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.resetButton.setOnClickListener{
+            viewModel.reset(requireContext())
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
