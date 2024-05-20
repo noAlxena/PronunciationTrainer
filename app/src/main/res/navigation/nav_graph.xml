@@ -11,10 +11,6 @@
         tools:layout="@layout/fragment_start"
         android:label="StartFragment">
         <action
-            android:id="@+id/action_startFragment_to_authorsFragment"
-            app:destination="@id/authorsFragment"
-            app:popUpTo="@id/startFragment" />
-        <action
             android:id="@+id/action_startFragment_to_soundTrainFragment"
             app:destination="@id/soundTrainFragment"
             app:popUpTo="@id/startFragment" />
@@ -22,6 +18,9 @@
             android:id="@+id/action_startFragment_to_soundInfoFragment"
             app:destination="@id/soundInfoFragment"
             app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorsFragment"
@@ -38,4 +37,8 @@
         android:name="com.alxena.pronunciationtrainer.ui.fragment.SoundInfoFragment"
         android:label="fragment_sound_info"
         tools:layout="@layout/fragment_sound_info" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.ListFragment"
+        android:label="ListFragment" />
 </navigation>
