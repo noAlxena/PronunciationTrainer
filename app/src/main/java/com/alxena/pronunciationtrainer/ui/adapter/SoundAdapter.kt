@@ -22,7 +22,7 @@ class SoundAdapter (private val sounds: List<SoundProfileEntity>):
 
     override fun onBindViewHolder(holder: SoundViewHolder, position: Int) {
         with(holder.binding){
-            soundName.text = sounds[position].name
+            soundName.text = sounds[position].soundId.toString()
         }
     }
 }

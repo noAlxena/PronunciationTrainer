@@ -17,13 +17,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class StartFragment: Fragment() {
-    val db by lazy{
-        Room.databaseBuilder(
-            requireContext(),
-            SoundDatabase::class.java,"sounds.db"
-        ).build()
-    }
-
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -35,27 +28,18 @@ class StartFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        GlobalScope.launch {
-            db.clearAllTables()
-            for(a in TestData.Sounds){
-                db.SoundProfileDAO().insert(a)
-            }
-            val snds = db.SoundProfileDAO().getCategories()
-            Log.e("123",snds.joinToString(","))
-            val snds2 = db.SoundProfileDAO().getSoundsByCategory(snds[0])
-            Log.e("123",snds2.joinToString(","))
-        }
-
-        binding.button.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_soundTrainFragment)
-        }
-        binding.button3.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_soundInfoFragment)
-        }
-        binding.button4.setOnClickListener{
+        binding.startButton.setOnClickListener{
             findNavController().navigate(R.id.action_startFragment_to_listFragment)
         }
-
+        binding.infoButton.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment_to_infoFragment)
+        }
+        binding.optionsButton.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment_to_settingFragment)
+        }
+        binding.authorsButton.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment_to_authorsFragment)
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()

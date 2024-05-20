@@ -24,22 +24,7 @@ class ListFragment:Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = CategoryAdapter(listOf(SoundCategory("гласные",listOf(
-            SoundProfileEntity(0,"a","гласные",false),
-            SoundProfileEntity(0,"э","гласные",false),
-            SoundProfileEntity(0,"ц","гласные",false)
-        )),
-        SoundCategory("согласные",listOf(
-            SoundProfileEntity(0,"a","гласные",false),
-            SoundProfileEntity(0,"э","гласные",false),
-            SoundProfileEntity(0,"ц","гласные",false)
-        )),
-            SoundCategory("сосогласные",listOf(
-                SoundProfileEntity(0,"a","гласные",false),
-                SoundProfileEntity(0,"э","гласные",false),
-                SoundProfileEntity(0,"ц","гласные",false)
-            ))
-        ))
+        val adapter = CategoryAdapter(listOf(SoundCategory("гласные",listOf())))
         binding.rec.adapter = adapter
         binding.rec.layoutManager = LinearLayoutManager(context)
     //LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
