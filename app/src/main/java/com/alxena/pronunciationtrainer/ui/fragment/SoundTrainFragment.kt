@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -39,7 +40,9 @@ class SoundTrainFragment: Fragment() {
         with(binding){
             soundName.text = resources.getStringArray(R.array.sounds)[soundId]
             soundInfoButton.setOnClickListener {
-                findNavController().navigate(R.id.action_soundTrainFragment_to_soundInfoFragment)
+                findNavController().navigate(R.id.action_soundTrainFragment_to_soundInfoFragment,
+                    bundleOf("soundId" to soundId)
+                )
             }
             nextButton.setOnClickListener{
                 findNavController().navigate(R.id.action_soundTrainFragment_to_listFragment)

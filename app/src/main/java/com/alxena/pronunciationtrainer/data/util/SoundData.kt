@@ -6,6 +6,7 @@ object SoundData {
     val data = listOf(
         listOf("a","а"),
         listOf("э"),
-        listOf("ц")
+        listOf("ш"),
+        listOf("р")
     )
 }

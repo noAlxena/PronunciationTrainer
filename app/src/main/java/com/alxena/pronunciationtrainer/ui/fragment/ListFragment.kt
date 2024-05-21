@@ -33,10 +33,10 @@ class ListFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getCategories(requireContext())
         viewModel.categories.observe(viewLifecycleOwner){
-            binding.rec.adapter = CategoryAdapter(it) { t: Int ->
+            binding.rec.adapter = CategoryAdapter(it) { soundId: Int ->
                 findNavController().navigate(
                     R.id.action_listFragment_to_soundTrainFragment,
-                    bundleOf("soundId" to t))
+                    bundleOf("soundId" to soundId))
             }
         }
         binding.rec.layoutManager = LinearLayoutManager(context)
