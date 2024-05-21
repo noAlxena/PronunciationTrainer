@@ -33,12 +33,12 @@ class SoundTrainFragment: Fragment() {
         speechRecognizer.setRecognitionListener(
             SpeechRecoginzerListener({
                 abc:String ->
-                binding.textView2.text = abc
+                binding.results.text = abc
             },{
                 Toast.makeText(context,"no match", Toast.LENGTH_LONG).show()
             })
         )
-        binding.button2.setOnClickListener{
+        binding.recordButton.setOnClickListener{
             Log.e("app","clicked")
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
             intent.putExtra(

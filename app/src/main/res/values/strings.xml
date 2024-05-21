@@ -11,4 +11,22 @@
     <string name="vowels">Гласные звуки</string>
     <string name="consonants">Согласные звуки</string>
     <string name="reset">Сбросить прогресс</string>
+    <string name="pronounce">Вы произнесли:</string>
+    <string name="record">записать</string>
+    <string name="next">далее</string>
+    <string name="sound_info">о звуке</string>
+    <string-array name="sounds">
+        <item>звук а</item>
+        <item>звук э</item>
+        <item>звук ц</item>
+    </string-array>
+    <string-array name="categories">
+        <item>гласные</item>
+        <item>согласные</item>
+    </string-array>
+    <string-array name="how_to_speak">
+        <item>произнесите а</item>
+        <item>произнесите а</item>
+        <item>произнесите ц</item>
+    </string-array>
 </resources>

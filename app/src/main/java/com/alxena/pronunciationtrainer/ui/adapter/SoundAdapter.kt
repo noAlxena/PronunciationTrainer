@@ -1,8 +1,10 @@
 package com.alxena.pronunciationtrainer.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.data.model.SoundProfileEntity
 import com.alxena.pronunciationtrainer.data.util.SoundCategory
 import com.alxena.pronunciationtrainer.databinding.ViewSoundBinding
@@ -22,7 +24,7 @@ class SoundAdapter (private val sounds: List<SoundProfileEntity>):
 
     override fun onBindViewHolder(holder: SoundViewHolder, position: Int) {
         with(holder.binding){
-            soundName.text = sounds[position].soundId.toString()
+            soundButton.text = soundButton.context.resources.getStringArray(R.array.sounds)[sounds[position].soundId]
         }
     }
 }

@@ -8,10 +8,9 @@
     tools:context=".ui.fragment.SoundInfoFragment">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/soundInfoName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="wrap_content" />
 
     <WebView
         android:id="@+id/web"
@@ -20,10 +19,9 @@
         android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/soundInfoText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+        android:layout_weight="1" />
 
 </LinearLayout>
