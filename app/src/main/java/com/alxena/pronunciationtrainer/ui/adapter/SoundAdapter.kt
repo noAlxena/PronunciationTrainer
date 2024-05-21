@@ -8,7 +8,7 @@ import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.data.model.SoundProfileEntity
 import com.alxena.pronunciationtrainer.data.util.SoundCategory
 import com.alxena.pronunciationtrainer.databinding.ViewSoundBinding
-class SoundAdapter (private val sounds: List<SoundProfileEntity>):
+class SoundAdapter (private val sounds: List<SoundProfileEntity>, private val listener:(Int)->Unit):
     RecyclerView.Adapter<SoundAdapter.SoundViewHolder>()
 {
     class SoundViewHolder(var binding: ViewSoundBinding): RecyclerView.ViewHolder(binding.root)
@@ -25,6 +25,13 @@ class SoundAdapter (private val sounds: List<SoundProfileEntity>):
     override fun onBindViewHolder(holder: SoundViewHolder, position: Int) {
         with(holder.binding){
             soundButton.text = soundButton.context.resources.getStringArray(R.array.sounds)[sounds[position].soundId]
+            if(sounds[position].completion)
+                soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_complete))
+            else
+                soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_main))
+            soundButton.setOnClickListener{
+                listener.invoke(sounds[position].soundId)
+            }
         }
     }
 }

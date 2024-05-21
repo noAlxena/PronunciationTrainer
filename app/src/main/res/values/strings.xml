@@ -15,6 +15,12 @@
     <string name="record">записать</string>
     <string name="next">далее</string>
     <string name="sound_info">о звуке</string>
+    <string name="speak">говорите</string>
+    <string name="grade">ваша оценка:</string>
+    <string name="not_recognized">не распознано</string>
+    <string name="no_permision">отсуствует разрешение</string>
+    <string name="correct">✔</string>
+    <string name="wrong">❌</string>
     <string-array name="sounds">
         <item>звук а</item>
         <item>звук э</item>

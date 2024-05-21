@@ -10,8 +10,8 @@ interface SoundProfileDAO {
     abstract fun getSoundsByCategory(categoryId: Int):List<SoundProfileEntity>
     @Insert
     abstract fun insert(result: SoundProfileEntity)
-    @Update
-    abstract fun update(result: SoundProfileEntity)
+    @Query("UPDATE sounds SET completion=true WHERE soundNameId=:soundId")
+    abstract fun completeSound(soundId: Int)
     @Delete
     abstract fun delete(result: SoundProfileEntity)
 }

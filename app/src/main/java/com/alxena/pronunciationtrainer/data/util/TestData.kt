@@ -6,6 +6,6 @@ object TestData {
     val Sounds = listOf(
         SoundProfileEntity(0,0,0,false),
         SoundProfileEntity(0,1,0,false),
-        SoundProfileEntity(0,2,1,false),
+        SoundProfileEntity(0,2,1,false)
     )
 }
