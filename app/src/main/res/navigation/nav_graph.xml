@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StartFragment"
+        tools:layout="@layout/fragment_start"
+        android:label="StartFragment">
+        <action
+            android:id="@+id/action_startFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_authorsFragment"
+            app:destination="@id/authorsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorsFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.AuthorsFragment"
+        tools:layout="@layout/fragment_authors"
+        android:label="AuthorsFragment" />
+    <fragment
+        android:id="@+id/soundTrainFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.SoundTrainFragment"
+        android:label="fragment_sound_train"
+        tools:layout="@layout/fragment_sound_train" >
+        <action
+            android:id="@+id/action_soundTrainFragment_to_soundInfoFragment"
+            app:destination="@id/soundInfoFragment" />
+        <action
+            android:id="@+id/action_soundTrainFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/soundInfoFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.SoundInfoFragment"
+        android:label="fragment_sound_info"
+        tools:layout="@layout/fragment_sound_info" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_soundTrainFragment"
+            app:destination="@id/soundTrainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.SettingFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">PronunciationTrainer</string>
+    <string name="title">Приложение для изучения русского языка</string>
+    <string name="start">начать</string>
+    <string name="info">справочник</string>
+    <string name="options">настройки</string>
+    <string name="authors">авторы</string>
+    <string name="authors_title">разработчики приложения</string>
+    <string name="autor1">Алексеев Никита Андреевич, группа 151112</string>
+    <string name="autor2">Малыгин Алексей Андреевич, группа 151112</string>
+    <string name="vowels">Гласные звуки</string>
+    <string name="consonants">Согласные звуки</string>
+    <string name="reset">Сбросить прогресс</string>
+    <string name="pronounce">Вы произнесли:</string>
+    <string name="record">записать</string>
+    <string name="next">далее</string>
+    <string name="sound_info">о звуке</string>
+    <string name="speak">говорите</string>
+    <string name="grade">ваша оценка:</string>
+    <string name="not_recognized">не распознано</string>
+    <string name="no_permision">отсуствует разрешение</string>
+    <string name="correct">✔</string>
+    <string name="wrong">❌</string>
+    <string-array name="sounds">
+        <item>звук а</item>
+        <item>звук э</item>
+        <item>звук ш</item>
+        <item>звук р</item>
+    </string-array>
+    <string-array name="categories">
+        <item>гласные</item>
+        <item>согласные</item>
+    </string-array>
+    <string-array name="how_to_speak">
+        <item>произнесите а</item>
+        <item>произнесите э</item>
+        <item>произнесите ш</item>
+        <item>произнесите р</item>
+    </string-array>
 </resources>
