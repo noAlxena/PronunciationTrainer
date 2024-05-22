@@ -13,9 +13,8 @@ class SettingViewModel:ViewModel() {
         val db = SoundDatabase.getDatabase(context)
         GlobalScope.launch {
             db.clearAllTables()
-            for(a in TestData.Sounds){
+            for(a in TestData.Sounds)
                 db.SoundProfileDAO().insert(a)
-            }
         }
     }
 }

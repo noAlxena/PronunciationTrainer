@@ -19,7 +19,14 @@ class ListViewModel:ViewModel() {
         val db = SoundDatabase.getDatabase(context)
         val arr = ArrayList<SoundCategory>()
         GlobalScope.launch {
-            val cats = db.SoundProfileDAO().getCategories()
+            var cats = db.SoundProfileDAO().getCategories()
+            if(cats.isEmpty())
+            {
+                db.clearAllTables()
+                for(a in TestData.Sounds)
+                    db.SoundProfileDAO().insert(a)
+                cats = db.SoundProfileDAO().getCategories()
+            }
             for(i in cats){
                 arr.add(SoundCategory(i,db.SoundProfileDAO().getSoundsByCategory(i)))
             }
