@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,19 +10,29 @@
 
     <TextView
         android:id="@+id/soundInfoName"
+        style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
     <WebView
         android:id="@+id/web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+    </WebView>
+
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_height="10dp" />
 
     <TextView
         android:id="@+id/soundInfoText"
+        style="@style/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -36,9 +36,6 @@
         <action
             android:id="@+id/action_soundTrainFragment_to_soundInfoFragment"
             app:destination="@id/soundInfoFragment" />
-        <action
-            android:id="@+id/action_soundTrainFragment_to_listFragment"
-            app:destination="@id/listFragment" />
     </fragment>
     <fragment
         android:id="@+id/soundInfoFragment"

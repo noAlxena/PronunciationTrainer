@@ -5,7 +5,7 @@
     <string name="info">справочник</string>
     <string name="options">настройки</string>
     <string name="authors">авторы</string>
-    <string name="authors_title">разработчики приложения</string>
+    <string name="authors_title">Разработчики приложения:</string>
     <string name="autor1">Алексеев Никита Андреевич, группа 151112</string>
     <string name="autor2">Малыгин Алексей Андреевич, группа 151112</string>
     <string name="vowels">Гласные звуки</string>
@@ -18,7 +18,8 @@
     <string name="speak">говорите</string>
     <string name="grade">ваша оценка:</string>
     <string name="not_recognized">не распознано</string>
-    <string name="no_permision">отсуствует разрешение</string>
+    <string name="no_permision">Отсуствует разрешение на запись звука</string>
+    <string name="instructions">Произнесите слово содержащее данный звук</string>
     <string name="correct">✔</string>
     <string name="wrong">❌</string>
     <string-array name="sounds">

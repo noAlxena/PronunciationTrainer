@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 class ListViewModel:ViewModel() {
 
     val categories: MutableLiveData<ArrayList<SoundCategory>> = MutableLiveData()
-    //var catList: LiveData<List<SoundCategory>> = LiveData<List<SoundCategory>>()
     fun getCategories(context:Context){
         val db = SoundDatabase.getDatabase(context)
         val arr = ArrayList<SoundCategory>()
@@ -26,8 +25,5 @@ class ListViewModel:ViewModel() {
             }
             categories.postValue(arr)
         }
-
-        //return t
-//Log.e("list", t.joinToString("|"))
     }
 }
