@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">PronunciationTrainer</string>
     <string name="title">Приложение для изучения русского языка</string>
-    <string name="start">начать</string>
-    <string name="info">справочник</string>
-    <string name="options">настройки</string>
-    <string name="authors">авторы</string>
+    <string name="start">Начать</string>
+    <string name="info">Справочник</string>
+    <string name="options">Настройки</string>
+    <string name="authors">Авторы</string>
     <string name="authors_title">разработчики приложения</string>
     <string name="autor1">Алексеев Никита Андреевич, группа 151112</string>
     <string name="autor2">Малыгин Алексей Андреевич, группа 151112</string>
