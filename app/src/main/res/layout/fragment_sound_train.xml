@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,45 +10,64 @@
 
     <TextView
         android:id="@+id/soundName"
+        style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/recordButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/record" />
-
-    <Button
         android:id="@+id/soundInfoButton"
+        style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sound_info" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <TextView
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions" />
+
+    <Button
+        android:id="@+id/recordButton"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/record" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/pronounce" />
 
     <TextView
         android:id="@+id/results"
+        style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
     <TextView
+        style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/grade" />
 
     <TextView
         android:id="@+id/grade"
+        style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next" />
 
 </LinearLayout>

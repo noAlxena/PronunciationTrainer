@@ -44,9 +44,6 @@ class SoundTrainFragment: Fragment() {
                     bundleOf("soundId" to soundId)
                 )
             }
-            nextButton.setOnClickListener{
-                findNavController().navigate(R.id.action_soundTrainFragment_to_listFragment)
-            }
             recordButton.setOnClickListener{
                 results.text = "..."
                 grade.text = "..."
