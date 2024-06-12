@@ -12,25 +12,25 @@
     <string name="consonants">Согласные звуки</string>
     <string name="reset">Сбросить прогресс</string>
     <string name="pronounce">Вы произнесли:</string>
-    <string name="record">записать</string>
-    <string name="next">далее</string>
-    <string name="sound_info">о звуке</string>
-    <string name="speak">говорите</string>
-    <string name="grade">ваша оценка:</string>
-    <string name="not_recognized">не распознано</string>
+    <string name="record">Записать</string>
+    <string name="next">Далее</string>
+    <string name="sound_info">О звуке</string>
+    <string name="speak">Говорите</string>
+    <string name="grade">Ваша оценка:</string>
+    <string name="not_recognized">Не распознано</string>
     <string name="no_permision">Отсуствует разрешение на запись звука</string>
     <string name="instructions">Произнесите слово содержащее данный звук</string>
     <string name="correct">✔</string>
     <string name="wrong">❌</string>
     <string-array name="sounds">
-        <item>звук а</item>
-        <item>звук э</item>
-        <item>звук ш</item>
-        <item>звук р</item>
+        <item>Звук а</item>
+        <item>Звук э</item>
+        <item>Звук ш</item>
+        <item>Звук р</item>
     </string-array>
     <string-array name="categories">
-        <item>гласные</item>
-        <item>согласные</item>
+        <item>Гласные</item>
+        <item>Согласные</item>
     </string-array>
     <string-array name="how_to_speak">
         <item>Нижняя челюсть опущена так, что расстояние между зубами равно примерно одному пальцу; язык лежит плоско, кончик языка у нижних передних зубов; губы образуют ровный овал, нёбная занавеска поднята; голосовые связки вибрируют.</item>
