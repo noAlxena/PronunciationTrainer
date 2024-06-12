@@ -32,7 +32,16 @@ class SoundInfoFragment: Fragment() {
         with(binding)
         {
             soundInfoName.text = resources.getStringArray(R.array.sounds)[soundId]
-            soundInfoText.text = resources.getStringArray(R.array.how_to_speak)[soundId]
+            //soundInfoText.text = resources.getStringArray(R.array.how_to_speak)[soundId]
+            soundInfoName.text = resources.getStringArray(R.array.sounds)[soundId]
+
+            val fullText = resources.getStringArray(R.array.how_to_speak)[soundId]
+
+            val sentences = fullText.split(";")
+
+            val formattedText = sentences.joinToString("\n")
+
+            soundInfoText.text = formattedText
             web.settings.apply {
                 javaScriptEnabled = true
                 loadWithOverviewMode = true
