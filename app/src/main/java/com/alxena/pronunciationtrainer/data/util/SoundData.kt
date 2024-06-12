@@ -7,6 +7,7 @@ object SoundData {
         listOf("a","а"),
         listOf("э"),
         listOf("ш"),
-        listOf("р")
+        listOf("р"),
+        listOf("б")
     )
 }

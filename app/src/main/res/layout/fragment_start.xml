@@ -22,7 +22,8 @@
         android:id="@+id/startButton"
         style="@style/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
+        android:textSize="50sp"
         android:text="@string/start" />
 
     <Space
@@ -46,7 +47,8 @@
         android:id="@+id/optionsButton"
         style="@style/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
+        android:textSize="50sp"
         android:text="@string/options" />
 
     <Space
@@ -57,7 +59,8 @@
         android:id="@+id/authorsButton"
         style="@style/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
+        android:textSize="50sp"
         android:text="@string/authors" />
 
 </LinearLayout>

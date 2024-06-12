@@ -18,7 +18,8 @@
         android:id="@+id/soundInfoButton"
         style="@style/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
+        android:textSize="50sp"
         android:text="@string/sound_info" />
 
     <Space
@@ -29,13 +30,19 @@
         style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/instructions" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <Button
         android:id="@+id/recordButton"
         style="@style/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
+        android:textSize="50sp"
         android:text="@string/record" />
 
     <Space
