@@ -8,6 +8,14 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.ListFragment">
 
+    <ImageButton
+        android:id="@+id/backhome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FFF1FB"
+        android:layout_gravity="right"
+        android:src="@drawable/baseline_cabin_24" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"
         android:layout_width="match_parent"
