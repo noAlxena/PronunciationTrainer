@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.JavascriptInterface
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentSoundInfoBinding
 
@@ -48,6 +49,10 @@ class SoundInfoFragment: Fragment() {
             }
             web.addJavascriptInterface(webObj(soundId),"webObj")
             web.loadUrl("file:///android_asset/asset.html")
+        }
+
+        binding.arrowback.setOnClickListener(){
+            findNavController().navigate(R.id.action_soundInfoFragment_to_soundTrainFragment)
         }
 
     }
