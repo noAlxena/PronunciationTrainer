@@ -8,12 +8,22 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.AuthorsFragment">
 
+    <ImageButton
+        android:id="@+id/backhome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FFF1FB"
+        android:layout_gravity="right"
+        android:src="@drawable/baseline_cabin_24" />
+
     <TextView
         android:id="@+id/textView4"
         style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/authors_title" />
+        android:text="@string/authors_title"
+        android:textSize="40dp"
+        />
 
     <Space
         android:layout_width="match_parent"
