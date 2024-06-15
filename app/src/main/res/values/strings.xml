@@ -14,7 +14,7 @@
     <string name="pronounce">Вы произнесли:</string>
     <string name="record">Записать</string>
     <string name="next">Далее</string>
-    <string name="sound_info">О звуке</string>
+    <string name="sound_info">Информация о звуке</string>
     <string name="speak">Говорите</string>
     <string name="grade">Ваша оценка:</string>
     <string name="not_recognized">Не распознано</string>
@@ -23,35 +23,35 @@
     <string name="correct">✔</string>
     <string name="wrong">❌</string>
     <string-array name="sounds">
-        <item>Звук а</item>
-        <item>Звук о</item>
-        <item>Звук у</item>
-        <item>Звук э</item>
-        <item>Звук ы</item>
-        <item>Звук и</item>
-        <item>Звук я</item>
-        <item>Звук ё</item>
-        <item>Звук е</item>
-        <item>Звук ю</item>
-        <item>Звук й</item>
-        <item>Звук б</item>
-        <item>Звук п</item>
-        <item>Звук м</item>
-        <item>Звук д</item>
-        <item>Звук т</item>
-        <item>Звук н</item>
-        <item>Звук к</item>
-        <item>Звук г</item>
-        <item>Звук х</item>
-        <item>Звук в</item>
-        <item>Звук ф</item>
-        <item>Звук р</item>
-        <item>Звук ж</item>
-        <item>Звук ш</item>
-        <item>Звук л</item>
-        <item>Звук ц</item>
-        <item>Звук ч</item>
-        <item>Звук щ</item>
+        <item>Звук А</item>
+        <item>Звук О</item>
+        <item>Звук У</item>
+        <item>Звук Э</item>
+        <item>Звук Ы</item>
+        <item>Звук И</item>
+        <item>Звук Я</item>
+        <item>Звук Ё</item>
+        <item>Звук Е</item>
+        <item>Звук Ю</item>
+        <item>Звук Й</item>
+        <item>Звук Б</item>
+        <item>Звук П</item>
+        <item>Звук М</item>
+        <item>Звук Д</item>
+        <item>Звук Т</item>
+        <item>Звук Н</item>
+        <item>Звук К</item>
+        <item>Звук Г</item>
+        <item>Звук Х</item>
+        <item>Звук В</item>
+        <item>Звук Ф</item>
+        <item>Звук Р</item>
+        <item>Звук Ж</item>
+        <item>Звук Ш</item>
+        <item>Звук Л</item>
+        <item>Звук Ц</item>
+        <item>Звук Ч</item>
+        <item>Звук Щ</item>
     </string-array>
     <string-array name="categories">
         <item>Гласные</item>
