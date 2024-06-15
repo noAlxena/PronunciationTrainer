@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentAuthorsBinding
 class AuthorsFragment: Fragment() {
     private var _binding: FragmentAuthorsBinding? = null
@@ -18,6 +20,10 @@ class AuthorsFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backhome.setOnClickListener(){
+            findNavController().navigate(R.id.action_authorsFragment_to_startFragment)
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
