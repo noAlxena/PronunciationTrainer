@@ -5,4 +5,5 @@
     <color name="button_main">#7469B6</color>
     <color name="button_complete">#69B674</color>
     <color name="background">#FFF1FB</color>
+    <color name="blink_color">#FF0000</color>
 </resources>
