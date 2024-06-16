@@ -2,14 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.fragment.SettingFragment">
 
-    <Button
-        android:id="@+id/resetButton"
+    <ImageButton
+        android:id="@+id/backhome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FFF1FB"
+        android:layout_gravity="right"
+        android:src="@drawable/baseline_cabin_24" />
+
+    <TextView
+        android:id="@+id/settings"
+        style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/options"
+        android:textSize="50dp"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/resetButton"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
         android:text="@string/reset" />
 </LinearLayout>

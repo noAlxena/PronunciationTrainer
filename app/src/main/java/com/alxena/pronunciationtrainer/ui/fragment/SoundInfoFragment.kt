@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.JavascriptInterface
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentSoundInfoBinding
 
@@ -32,13 +33,26 @@ class SoundInfoFragment: Fragment() {
         with(binding)
         {
             soundInfoName.text = resources.getStringArray(R.array.sounds)[soundId]
-            soundInfoText.text = resources.getStringArray(R.array.how_to_speak)[soundId]
+            //soundInfoText.text = resources.getStringArray(R.array.how_to_speak)[soundId]
+            soundInfoName.text = resources.getStringArray(R.array.sounds)[soundId]
+
+            val fullText = resources.getStringArray(R.array.how_to_speak)[soundId]
+
+            val sentences = fullText.split(";")
+
+            val formattedText = sentences.joinToString("\n")
+
+            soundInfoText.text = formattedText
             web.settings.apply {
                 javaScriptEnabled = true
                 loadWithOverviewMode = true
             }
             web.addJavascriptInterface(webObj(soundId),"webObj")
             web.loadUrl("file:///android_asset/asset.html")
+        }
+
+        binding.arrowback.setOnClickListener(){
+            findNavController().navigate(R.id.action_soundInfoFragment_to_soundTrainFragment)
         }
 
     }

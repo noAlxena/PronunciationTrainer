@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="main_layout">
+        <item name="android:paddingLeft">35dp</item>
+        <item name="android:paddingTop">60dp</item>
+        <item name="android:paddingRight">35dp</item>
+        <item name="android:paddingBottom">60dp</item>
+        <item name="android:background">@color/background</item>
+    </style>
+    <style name="header">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="main">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="small">
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

@@ -15,19 +15,22 @@ import kotlinx.coroutines.launch
 class ListViewModel:ViewModel() {
 
     val categories: MutableLiveData<ArrayList<SoundCategory>> = MutableLiveData()
-    //var catList: LiveData<List<SoundCategory>> = LiveData<List<SoundCategory>>()
     fun getCategories(context:Context){
         val db = SoundDatabase.getDatabase(context)
         val arr = ArrayList<SoundCategory>()
         GlobalScope.launch {
-            val cats = db.SoundProfileDAO().getCategories()
+            var cats = db.SoundProfileDAO().getCategories()
+            if(cats.isEmpty())
+            {
+                db.clearAllTables()
+                for(a in TestData.Sounds)
+                    db.SoundProfileDAO().insert(a)
+                cats = db.SoundProfileDAO().getCategories()
+            }
             for(i in cats){
                 arr.add(SoundCategory(i,db.SoundProfileDAO().getSoundsByCategory(i)))
             }
             categories.postValue(arr)
         }
-
-        //return t
-//Log.e("list", t.joinToString("|"))
     }
 }

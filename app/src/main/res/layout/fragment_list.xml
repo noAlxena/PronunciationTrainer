@@ -2,10 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.fragment.ListFragment"
+    style="@style/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.fragment.ListFragment">
+
+    <ImageButton
+        android:id="@+id/backhome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FFF1FB"
+        android:layout_gravity="right"
+        android:src="@drawable/baseline_cabin_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"

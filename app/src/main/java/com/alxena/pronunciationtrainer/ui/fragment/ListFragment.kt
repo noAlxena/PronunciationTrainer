@@ -40,6 +40,10 @@ class ListFragment:Fragment() {
             }
         }
         binding.rec.layoutManager = LinearLayoutManager(context)
+
+        binding.backhome.setOnClickListener(){
+            findNavController().navigate(R.id.action_listFragment_to_startFragment)
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()

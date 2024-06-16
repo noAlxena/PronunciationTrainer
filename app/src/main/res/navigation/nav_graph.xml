@@ -27,7 +27,11 @@
         android:id="@+id/authorsFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.AuthorsFragment"
         tools:layout="@layout/fragment_authors"
-        android:label="AuthorsFragment" />
+        android:label="AuthorsFragment" >
+        <action
+            android:id="@+id/action_authorsFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
     <fragment
         android:id="@+id/soundTrainFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.SoundTrainFragment"
@@ -39,12 +43,19 @@
         <action
             android:id="@+id/action_soundTrainFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_soundTrainFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/soundInfoFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.SoundInfoFragment"
         android:label="fragment_sound_info"
-        tools:layout="@layout/fragment_sound_info" />
+        tools:layout="@layout/fragment_sound_info" >
+        <action
+            android:id="@+id/action_soundInfoFragment_to_soundTrainFragment"
+            app:destination="@id/soundTrainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.ListFragment"
@@ -53,6 +64,9 @@
         <action
             android:id="@+id/action_listFragment_to_soundTrainFragment"
             app:destination="@id/soundTrainFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
@@ -63,5 +77,9 @@
         android:id="@+id/settingFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.SettingFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
 </navigation>
