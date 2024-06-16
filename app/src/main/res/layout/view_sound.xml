@@ -4,5 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/soundButton"
     style="@style/small"
-    android:layout_width="280px"
-    android:layout_height="180px" />
+    android:layout_width="100dp"
+    android:layout_height="70dp" />
