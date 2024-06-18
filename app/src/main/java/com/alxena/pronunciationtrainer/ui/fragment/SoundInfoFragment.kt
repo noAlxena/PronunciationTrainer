@@ -33,13 +33,9 @@ class SoundInfoFragment: Fragment() {
         with(binding)
         {
             soundInfoName.text = resources.getStringArray(R.array.sounds)[soundId]
-            //soundInfoText.text = resources.getStringArray(R.array.how_to_speak)[soundId]
             soundInfoName.text = resources.getStringArray(R.array.sounds)[soundId]
-
             val fullText = resources.getStringArray(R.array.how_to_speak)[soundId]
-
             val sentences = fullText.split(";")
-
             val formattedText = sentences.joinToString("\n")
 
             soundInfoText.text = formattedText
@@ -51,9 +47,13 @@ class SoundInfoFragment: Fragment() {
             web.loadUrl("file:///android_asset/asset.html")
         }
 
+//        binding.arrowback.setOnClickListener(){
+//            findNavController().navigate(R.id.action_soundInfoFragment_to_soundTrainFragment)
+//        }
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_soundInfoFragment_to_soundTrainFragment)
+            findNavController().popBackStack()
         }
+
 
     }
     override fun onDestroyView() {
