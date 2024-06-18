@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PronunciationTrainer</string>
-    <string name="title">Приложение для изучения русского языка</string>
+    <string name="title">Говори правильно</string>
     <string name="start">Начать</string>
     <string name="info">Справочник</string>
     <string name="options">Настройки</string>
