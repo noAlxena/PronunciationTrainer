@@ -5,13 +5,13 @@ import androidx.room.*
 @Dao
 interface SoundProfileDAO {
     @Query("SELECT DISTINCT categoryId from sounds")
-    abstract fun getCategories():List<Int>
+    fun getCategories():List<Int>
     @Query("SELECT * from sounds WHERE categoryId = :categoryId")
-    abstract fun getSoundsByCategory(categoryId: Int):List<SoundProfileEntity>
+    fun getSoundsByCategory(categoryId: Int):List<SoundProfileEntity>
     @Insert
-    abstract fun insert(result: SoundProfileEntity)
+    fun insert(result: SoundProfileEntity)
     @Query("UPDATE sounds SET completion=true WHERE soundNameId=:soundId")
-    abstract fun completeSound(soundId: Int)
+    fun completeSound(soundId: Int)
     @Delete
-    abstract fun delete(result: SoundProfileEntity)
+    fun delete(result: SoundProfileEntity)
 }
