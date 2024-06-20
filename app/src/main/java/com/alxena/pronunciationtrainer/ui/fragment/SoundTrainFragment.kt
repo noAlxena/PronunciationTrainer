@@ -1,7 +1,5 @@
 package com.alxena.pronunciationtrainer.ui.fragment
 
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -48,8 +46,10 @@ class SoundTrainFragment: Fragment() {
             }
 
             binding.arrowback.setOnClickListener(){
+
                 findNavController().navigate(R.id.action_soundTrainFragment_to_listFragment)
             }
+
 
             binding.backhome.setOnClickListener(){
                 findNavController().navigate(R.id.action_soundTrainFragment_to_startFragment)
