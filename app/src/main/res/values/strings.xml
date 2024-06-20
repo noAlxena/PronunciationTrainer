@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PronunciationTrainer</string>
-    <string name="title">Приложение для изучения русского языка</string>
+    <string name="title">Говори правильно</string>
     <string name="start">Начать</string>
     <string name="info">Справочник</string>
     <string name="options">Настройки</string>
@@ -13,6 +13,7 @@
     <string name="reset">Сбросить прогресс</string>
     <string name="pronounce">Вы произнесли:</string>
     <string name="record">Записать</string>
+    <string name="record_start">Запись началась</string>
     <string name="next">Далее</string>
     <string name="sound_info">Информация о звуке</string>
     <string name="speak">Говорите</string>
