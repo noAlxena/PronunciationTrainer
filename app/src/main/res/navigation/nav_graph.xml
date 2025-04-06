@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_startFragment_to_authorsFragment"
             app:destination="@id/authorsFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_studentViewFragment"
+            app:destination="@id/studentViewFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorsFragment"
@@ -80,6 +86,81 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gradeViewFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.GradeViewFragment"
+        android:label="fragment_grade_list"
+        tools:layout="@layout/fragment_grade_list" >
+        <action
+            android:id="@+id/action_gradeViewFragment_to_lessonViewFragment"
+            app:destination="@id/lessonViewFragment" />
+        <action
+            android:id="@+id/action_gradeViewFragment_to_startFragment2"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonViewFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.LessonViewFragment"
+        android:label="fragment_lesson_list"
+        tools:layout="@layout/fragment_lesson_list">
+        <action
+            android:id="@+id/action_lessonViewFragment_to_gradeViewFragment"
+            app:destination="@id/gradeViewFragment" />
+        <action
+            android:id="@+id/action_lessonViewFragment_to_studentViewFragment"
+            app:destination="@id/studentViewFragment" />
+        <action
+            android:id="@+id/action_lessonViewFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentViewFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StudentViewFragment"
+        android:label="fragment_student_list"
+        tools:layout="@layout/fragment_student_list">
+        <action
+            android:id="@+id/action_studentViewFragment_to_lessonViewFragment"
+            app:destination="@id/lessonViewFragment" />
+        <action
+            android:id="@+id/action_studentViewFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_teacherRegFragment"
+            app:destination="@id/teacherRegFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_studentRegFragment"
+            app:destination="@id/studentRegFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentRegFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StudentRegFragment"
+        android:label="fragment_student_reg"
+        tools:layout="@layout/fragment_student_reg">
+        <action
+            android:id="@+id/action_studentRegFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_studentRegFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherRegFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.TeacherRegFragment"
+        android:label="fragment_teacher_reg"
+        tools:layout="@layout/fragment_teacher_reg">
+        <action
+            android:id="@+id/action_teacherRegFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_teacherRegFragment_to_startFragment"
             app:destination="@id/startFragment" />
     </fragment>
 </navigation>
