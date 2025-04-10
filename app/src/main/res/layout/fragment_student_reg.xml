@@ -42,7 +42,6 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
             style="@style/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,24 +53,24 @@
             android:layout_height="40dp" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/editToken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            android:text="ключ учителя" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/editLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            android:text="логин" />
 
         <Space
             android:layout_width="match_parent"
@@ -82,7 +81,7 @@
             style="@style/main"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:text="Учитель"
+            android:text="Отправить"
             android:textSize="40sp" />
     </LinearLayout>
 

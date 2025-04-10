@@ -21,7 +21,13 @@ class RegistrationFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //binding.backhome.setOnClickListener(){
+        binding.buttonTeacher.setOnClickListener(){
+            findNavController().navigate(R.id.action_registrationFragment_to_teacherRegFragment)
+        }
+        binding.buttonStudent.setOnClickListener(){
+            findNavController().navigate(R.id.action_registrationFragment_to_studentRegFragment)
+        }
+    //binding.backhome.setOnClickListener(){
         //    findNavController().navigate(R.id.action_authorsFragment_to_startFragment)
         //}
     }
