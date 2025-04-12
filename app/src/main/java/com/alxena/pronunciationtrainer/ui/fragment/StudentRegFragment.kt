@@ -31,7 +31,7 @@ class StudentRegFragment: Fragment() {
         binding.button.setOnClickListener(){
             val login = binding.editLogin.text.toString()
             val teacherToken = binding.editToken.text.toString()
-            viewModel.getToken(requireContext(), login, teacherToken)
+            viewModel.getToken(requireContext(), teacherToken, login)
             viewModel.registered.observe(viewLifecycleOwner){
                 findNavController().navigate(R.id.action_studentRegFragment_to_startFragment)
             }

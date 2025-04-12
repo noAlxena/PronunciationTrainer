@@ -29,7 +29,7 @@ class SettingFragment: Fragment() {
             viewModel.reset(requireContext())
         }
 
-        binding.backhome.setOnClickListener(){
+        binding.arrowback.setOnClickListener(){
             findNavController().navigate(R.id.action_settingFragment_to_startFragment)
         }
     }

@@ -22,7 +22,7 @@ class AuthorsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backhome.setOnClickListener(){
+        binding.arrowback.setOnClickListener(){
             findNavController().navigate(R.id.action_authorsFragment_to_startFragment)
         }
     }

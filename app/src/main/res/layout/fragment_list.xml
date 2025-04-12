@@ -7,14 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.fragment.ListFragment">
-
     <ImageButton
-        android:id="@+id/backhome"
+        android:id="@+id/arrowback"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FFF1FB"
-        android:layout_gravity="right"
-        android:src="@drawable/baseline_cabin_24" />
+        android:src="@drawable/baseline_arrow_back_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"

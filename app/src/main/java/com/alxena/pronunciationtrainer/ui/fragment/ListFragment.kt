@@ -41,7 +41,7 @@ class ListFragment:Fragment() {
         }
         binding.rec.layoutManager = LinearLayoutManager(context)
 
-        binding.backhome.setOnClickListener(){
+        binding.arrowback.setOnClickListener(){
             findNavController().navigate(R.id.action_listFragment_to_startFragment)
         }
     }

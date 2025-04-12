@@ -38,20 +38,39 @@ class StartFragment: Fragment() {
             {
                 findNavController().navigate(R.id.action_startFragment_to_registrationFragment)
             }
+            else
+            {
+                binding.loginText.text = it.login
+                if(it.teacherToken == null)
+                {
+                    binding.roleText.text = "учитель"
+                }
+                else
+                {
+                    binding.roleText.text = "ученик"
+                }
+            }
             Log.d("a","${it==null}")
         }
         binding.startButton.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_listFragment)
+            if(viewModel.settings.value?.teacherToken == null)
+            {
+                findNavController().navigate(R.id.action_startFragment_to_studentViewFragment)
+            }
+            else
+            {
+                findNavController().navigate(R.id.action_startFragment_to_listFragment)
+            }
         }
         binding.infoButton.setOnClickListener{
             findNavController().navigate(R.id.action_startFragment_to_infoFragment)
         }
-        binding.optionsButton.setOnClickListener{
+        binding.settingButton.setOnClickListener{
             findNavController().navigate(R.id.action_startFragment_to_settingFragment)
         }
-        binding.authorsButton.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_authorsFragment)
-        }
+        //binding.authorsButton.setOnClickListener{
+            //findNavController().navigate(R.id.action_startFragment_to_authorsFragment)
+        //}
     }
     override fun onDestroyView() {
         super.onDestroyView()

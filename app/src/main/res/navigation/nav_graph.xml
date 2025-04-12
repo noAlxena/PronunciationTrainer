@@ -78,7 +78,11 @@
         android:id="@+id/infoFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.InfoFragment"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.alxena.pronunciationtrainer.ui.fragment.SettingFragment"
