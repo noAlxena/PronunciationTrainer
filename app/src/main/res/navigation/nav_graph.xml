@@ -23,8 +23,8 @@
             android:id="@+id/action_startFragment_to_authorsFragment"
             app:destination="@id/authorsFragment" />
         <action
-            android:id="@+id/action_startFragment_to_studentViewFragment"
-            app:destination="@id/studentViewFragment" />
+            android:id="@+id/action_startFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
         <action
             android:id="@+id/action_startFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
@@ -93,42 +93,42 @@
             app:destination="@id/startFragment" />
     </fragment>
     <fragment
-        android:id="@+id/gradeViewFragment"
-        android:name="com.alxena.pronunciationtrainer.ui.fragment.GradeViewFragment"
+        android:id="@+id/gradeListFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.GradeListFragment"
         android:label="fragment_grade_list"
         tools:layout="@layout/fragment_grade_list" >
         <action
-            android:id="@+id/action_gradeViewFragment_to_lessonViewFragment"
-            app:destination="@id/lessonViewFragment" />
+            android:id="@+id/action_gradeListFragment_to_lessonListFragment"
+            app:destination="@id/lessonListFragment" />
         <action
-            android:id="@+id/action_gradeViewFragment_to_startFragment2"
+            android:id="@+id/action_gradeListFragment_to_startFragment2"
             app:destination="@id/startFragment" />
     </fragment>
     <fragment
-        android:id="@+id/lessonViewFragment"
-        android:name="com.alxena.pronunciationtrainer.ui.fragment.LessonViewFragment"
+        android:id="@+id/lessonListFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.LessonListFragment"
         android:label="fragment_lesson_list"
         tools:layout="@layout/fragment_lesson_list">
         <action
-            android:id="@+id/action_lessonViewFragment_to_gradeViewFragment"
-            app:destination="@id/gradeViewFragment" />
+            android:id="@+id/action_lessonListFragment_to_gradeListFragment"
+            app:destination="@id/gradeListFragment" />
         <action
-            android:id="@+id/action_lessonViewFragment_to_studentViewFragment"
-            app:destination="@id/studentViewFragment" />
+            android:id="@+id/action_lessonListFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
         <action
-            android:id="@+id/action_lessonViewFragment_to_startFragment"
+            android:id="@+id/action_lessonListFragment_to_startFragment"
             app:destination="@id/startFragment" />
     </fragment>
     <fragment
-        android:id="@+id/studentViewFragment"
-        android:name="com.alxena.pronunciationtrainer.ui.fragment.StudentViewFragment"
+        android:id="@+id/studentListFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StudentListFragment"
         android:label="fragment_student_list"
         tools:layout="@layout/fragment_student_list">
         <action
-            android:id="@+id/action_studentViewFragment_to_lessonViewFragment"
-            app:destination="@id/lessonViewFragment" />
+            android:id="@+id/action_studentListFragment_to_lessonListFragment"
+            app:destination="@id/lessonListFragment" />
         <action
-            android:id="@+id/action_studentViewFragment_to_startFragment"
+            android:id="@+id/action_studentListFragment_to_startFragment"
             app:destination="@id/startFragment" />
     </fragment>
     <fragment

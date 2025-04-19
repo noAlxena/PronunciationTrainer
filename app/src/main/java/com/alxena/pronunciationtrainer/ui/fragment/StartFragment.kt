@@ -55,7 +55,7 @@ class StartFragment: Fragment() {
         binding.startButton.setOnClickListener{
             if(viewModel.settings.value?.teacherToken == null)
             {
-                findNavController().navigate(R.id.action_startFragment_to_studentViewFragment)
+                findNavController().navigate(R.id.action_startFragment_to_studentListFragment)
             }
             else
             {

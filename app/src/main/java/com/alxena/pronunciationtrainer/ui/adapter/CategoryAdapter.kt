@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alxena.pronunciationtrainer.R
+import com.alxena.pronunciationtrainer.data.util.LessonCategory
 import com.alxena.pronunciationtrainer.data.util.SoundCategory
 import com.alxena.pronunciationtrainer.databinding.ViewCategoryBinding
-class CategoryAdapter(private val categories:List<SoundCategory>, private val listener:(Int)->Unit):
+class CategoryAdapter(private val categories:List<LessonCategory>, private val listener:(String)->Unit):
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>()
 {
     class CategoryViewHolder(var binding:ViewCategoryBinding):RecyclerView.ViewHolder(binding.root)
@@ -25,10 +26,10 @@ class CategoryAdapter(private val categories:List<SoundCategory>, private val li
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         with(holder.binding){
-            catName.text = rec.context.resources.getStringArray(R.array.categories)[categories[position].nameId]
-            val adapter = SoundAdapter(categories[position].sounds,listener)
+            catName.text = categories[position].title
+            val adapter = SoundAdapter(categories[position].lessons, listener)
             rec.adapter = adapter
-            rec.layoutManager = GridLayoutManager(rec.context,3)
+            rec.layoutManager = GridLayoutManager(rec.context, categories[position].numColumn)
         }
     }
 }
