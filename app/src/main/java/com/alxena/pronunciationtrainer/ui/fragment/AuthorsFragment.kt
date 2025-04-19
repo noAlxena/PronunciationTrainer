@@ -23,7 +23,7 @@ class AuthorsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_authorsFragment_to_startFragment)
+            findNavController().popBackStack()
         }
     }
     override fun onDestroyView() {

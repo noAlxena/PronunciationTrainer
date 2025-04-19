@@ -45,10 +45,6 @@ class SoundInfoFragment: Fragment() {
             web.addJavascriptInterface(webObj(soundId),"webObj")
             web.loadUrl("file:///android_asset/asset.html")
         }
-
-//        binding.arrowback.setOnClickListener(){
-//            findNavController().navigate(R.id.action_soundInfoFragment_to_soundTrainFragment)
-//        }
         binding.arrowback.setOnClickListener(){
             findNavController().popBackStack()
         }

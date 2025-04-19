@@ -25,12 +25,6 @@
             android:layout_height="20dp"
             android:layout_weight="1" />
 
-        <ImageButton
-            android:id="@+id/backhome"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="#FFF1FB"
-            android:src="@drawable/baseline_cabin_24" />
     </LinearLayout>
 
 

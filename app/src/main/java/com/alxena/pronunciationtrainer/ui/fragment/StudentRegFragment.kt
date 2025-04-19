@@ -26,15 +26,16 @@ class StudentRegFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_studentRegFragment_to_registrationFragment)
+            findNavController().popBackStack()
         }
         binding.button.setOnClickListener(){
             val login = binding.editLogin.text.toString()
             val teacherToken = binding.editToken.text.toString()
             viewModel.getToken(requireContext(), teacherToken, login)
-            viewModel.registered.observe(viewLifecycleOwner){
-                findNavController().navigate(R.id.action_studentRegFragment_to_startFragment)
-            }
+        }
+        viewModel.registered.observe(viewLifecycleOwner){
+            findNavController().navigate(R.id.action_studentRegFragment_to_startFragment)
+            //findNavController().popBackStack(R.id.startFragment, false)
         }
     }
     override fun onDestroyView() {

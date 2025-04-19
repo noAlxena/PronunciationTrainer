@@ -43,7 +43,7 @@ class LessonListFragment: Fragment() {
         }
         binding.rec.layoutManager = LinearLayoutManager(context)
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_lessonListFragment_to_studentListFragment)
+            findNavController().popBackStack()
         }
     }
     override fun onDestroyView() {

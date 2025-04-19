@@ -30,7 +30,7 @@ class SettingFragment: Fragment() {
         }
 
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_settingFragment_to_startFragment)
+            findNavController().popBackStack()
         }
     }
     override fun onDestroyView() {

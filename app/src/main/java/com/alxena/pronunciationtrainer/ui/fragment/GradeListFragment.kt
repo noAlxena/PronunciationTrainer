@@ -34,7 +34,7 @@ class GradeListFragment: Fragment() {
         }
         binding.rec.layoutManager = LinearLayoutManager(context)
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_gradeListFragment_to_lessonListFragment)
+            findNavController().popBackStack()
         }
     }
     override fun onDestroyView() {

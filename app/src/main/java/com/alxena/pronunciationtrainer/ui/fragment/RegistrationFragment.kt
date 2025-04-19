@@ -27,9 +27,6 @@ class RegistrationFragment: Fragment() {
         binding.buttonStudent.setOnClickListener(){
             findNavController().navigate(R.id.action_registrationFragment_to_studentRegFragment)
         }
-    //binding.backhome.setOnClickListener(){
-        //    findNavController().navigate(R.id.action_authorsFragment_to_startFragment)
-        //}
     }
     override fun onDestroyView() {
         super.onDestroyView()

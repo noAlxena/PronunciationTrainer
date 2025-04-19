@@ -26,7 +26,7 @@ class InfoFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.arrowback.setOnClickListener{
-            findNavController().navigate(R.id.action_infoFragment_to_startFragment)
+            findNavController().popBackStack()
         }
         viewModel.getSettings(requireContext())
         viewModel.settings.observe(viewLifecycleOwner){

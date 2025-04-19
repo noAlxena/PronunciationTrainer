@@ -46,14 +46,9 @@ class SoundTrainFragment: Fragment() {
             }
 
             binding.arrowback.setOnClickListener(){
-
-                findNavController().navigate(R.id.action_soundTrainFragment_to_listFragment)
+                findNavController().popBackStack()
             }
 
-
-            binding.backhome.setOnClickListener(){
-                findNavController().navigate(R.id.action_soundTrainFragment_to_startFragment)
-            }
 
             recordButton.setOnClickListener{
 

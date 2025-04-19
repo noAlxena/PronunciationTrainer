@@ -28,7 +28,7 @@ class StudentListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_studentListFragment_to_startFragment)
+            findNavController().popBackStack()
         }
         viewModel.getStudents(requireContext())
         viewModel.students.observe(viewLifecycleOwner){

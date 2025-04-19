@@ -27,14 +27,15 @@ class TeacherRegFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.arrowback.setOnClickListener(){
-            findNavController().navigate(R.id.action_teacherRegFragment_to_registrationFragment)
+            findNavController().popBackStack()
         }
         binding.button.setOnClickListener(){
             val login = binding.editLogin.text.toString()
             viewModel.getToken(requireContext(),login)
         }
         viewModel.registered.observe(viewLifecycleOwner){
-            findNavController().navigate(R.id.action_teacherRegFragment_to_startFragment)
+           findNavController().navigate(R.id.action_teacherRegFragment_to_startFragment)
+            //findNavController().popBackStack(R.id.startFragment, false) //TODO popbackstack loads Livedata from previous fragment which restart registration
         }
     }
     override fun onDestroyView() {
