@@ -25,10 +25,9 @@ class StudentRegViewModel:ViewModel() {
         GlobalScope.launch {
             val requestBody = MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
-                .addFormDataPart("teacher", teacherToken)
                 .addFormDataPart("login", login)
                 .build()
-            val response = service.createStudent(requestBody).execute()
+            val response = service.createStudent(teacherToken, requestBody).execute()
             response.body()?.let{
                 val settings = ProfileSettingsEntity(
                     0,

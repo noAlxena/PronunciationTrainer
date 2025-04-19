@@ -1,3 +1,3 @@
 package com.alxena.pronunciationtrainer.data.model
 
-class tokenDAO(val token:String) {}
+class TokenDAO(val token:String) {}

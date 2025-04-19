@@ -1,29 +1,45 @@
 package com.alxena.pronunciationtrainer.data.util
 
+import com.alxena.pronunciationtrainer.data.model.CategoryDAO
+import com.alxena.pronunciationtrainer.data.model.LessonDAO
+import com.alxena.pronunciationtrainer.data.model.LessonGradeDAO
+import com.alxena.pronunciationtrainer.data.model.TopGradeDAO
 import com.alxena.pronunciationtrainer.data.model.StudentDAO
-import com.alxena.pronunciationtrainer.data.model.tokenDAO
+import com.alxena.pronunciationtrainer.data.model.TokenDAO
 import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.PUT
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 
 interface APIController {
-    @POST("/teacher")
-    fun createTeacher(@Body body: RequestBody) : Call<tokenDAO>
+    @POST("/teachers")
+    fun createTeacher(@Body body: RequestBody) : Call<TokenDAO>
 
-    @POST("/student")
-    fun createStudent(@Body body: RequestBody) : Call<tokenDAO>
-/*
-    @PUT("/grade")
-    fun checkRecording(@Body body: RequestBody) : Call<GradeDAO>
+    @POST("/teachers/{teacherToken}/students")
+    fun createStudent(@Path("teacherToken") teacherToken: String, @Body body: RequestBody) : Call<TokenDAO>
 
-    @GET("/student")
-    fun getStudents(@Body body: RequestBody) : Call<ArrayList<StudentDAO>>
+    @GET("/teachers/{teacherToken}/students")
+    fun getStudents(@Path("teacherToken") teacherToken: String) : Call<List<StudentDAO>>
 
+    @GET("/categories")
+    fun getCategories():Call<List<CategoryDAO>>
+
+    @GET("/students/{studentToken}/top/{categoryToken}")
+    fun getTopGrades(@Path("studentToken") studentToken: String, @Path("categoryToken") categoryToken: String) : Call<List<TopGradeDAO>>
+
+    @GET("/students/{studentToken}/grades/{lessonToken}")
+    fun getLessonGrades(@Path("studentToken") studentToken: String, @Path("lessonToken") lessonToken: String) : Call<List<LessonGradeDAO>>
+
+    @POST("/students/{studentToken}/grades/{lessonToken}")
+    fun checkRecording(@Path("studentToken") studentToken: String, @Path("lessonToken") lessonToken: String) : Call<LessonGradeDAO>//TODO
+
+    @GET("/lessons/{lessonToken}")
+    fun getLesson(@Path("lessonToken") lessonToken: String):Call<LessonDAO>
+
+    /*
     @GET("/grade")
     fun getGrades(@Body body: RequestBody) : Call<ArrayList<GradeDAO>>
     */
