@@ -4,30 +4,40 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
+import com.alxena.pronunciationtrainer.data.util.APIController
+import com.alxena.pronunciationtrainer.data.util.LessonCategory
 import com.alxena.pronunciationtrainer.data.util.SoundCategory
 import com.alxena.pronunciationtrainer.data.util.TestData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class ListViewModel:ViewModel() {
-
-    val categories: MutableLiveData<ArrayList<SoundCategory>> = MutableLiveData()
-    fun getCategories(context:Context){
+    private val API = Retrofit
+        .Builder().baseUrl("http://10.0.2.2:5000")
+        .addConverterFactory(GsonConverterFactory.create()).build()
+    val service: APIController = API.create(APIController::class.java)
+    val lessons: MutableLiveData<ArrayList<LessonCategory>> = MutableLiveData()
+    fun getLessons(context:Context){
         val db = SoundDatabase.getDatabase(context)
-        val arr = ArrayList<SoundCategory>()
+        val arr = ArrayList<LessonCategory>()
         GlobalScope.launch {
-            var cats = db.SoundProfileDAO().getCategories()
-            if(cats.isEmpty())
+            val studentToken = db.ProfileSettingDAO().select()?.token?:""
+            val categories = service.getCategories().execute().body()
+            if(categories!=null)
             {
-                db.clearAllTables()
-                for(a in TestData.Sounds)
-                    db.SoundProfileDAO().insert(a)
-                cats = db.SoundProfileDAO().getCategories()
+                val cats = ArrayList<LessonCategory>()
+                for(cat in categories)
+                {
+                    val lessons = service.getTopGrades(studentToken, cat.token).execute().body()
+                    if(lessons!=null)
+                    {
+                        cats.add(LessonCategory(cat.title, cat.difficulty, cat.numColumn, lessons))
+                    }
+                }
+                lessons.postValue(cats)
             }
-            for(i in cats){
-                arr.add(SoundCategory(i,db.SoundProfileDAO().getSoundsByCategory(i)))
-            }
-            categories.postValue(arr)
         }
     }
 }

@@ -24,6 +24,7 @@ class GradeAdapter(private val grades: List<LessonGradeDAO>):
     override fun onBindViewHolder(holder: GradeViewHolder, position: Int) {
         with(holder.binding){
             textGrade.text = "${grades[position].grade}"
+            textTimestamp.text = grades[position].timestamp
         }
     }
 }

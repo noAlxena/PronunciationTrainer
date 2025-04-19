@@ -26,7 +26,7 @@ class SoundTrainFragment: Fragment() {
     private var _binding: FragmentSoundTrainBinding? = null
     private val viewModel: SoundTrainViewModel by viewModels()
     private val binding get() = _binding!!
-    private lateinit var speechRecognizer: SpeechRecognizer
+    //private lateinit var speechRecognizer: SpeechRecognizer
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,20 +36,30 @@ class SoundTrainFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val soundId = arguments?.getInt("soundId")?:0
+        val lessonToken = arguments?.getString("lessonToken")?:""
+
+        viewModel.getLessonInfo(lessonToken)
+        viewModel.grade.observe(viewLifecycleOwner){
+            binding.textGrade.text = "${it.grade}"
+            binding.textTranscription.text = it.transcription
+        }
+        viewModel.lessonInfo.observe(viewLifecycleOwner){
+            binding.textTitle.text = it.title
+            binding.textContent.text = it.content
+        }
+        binding.buttonLessonInfo.setOnClickListener {
+            findNavController().navigate(R.id.action_soundTrainFragment_to_soundInfoFragment,
+                bundleOf("lessonToken" to lessonToken)
+            )
+        }
+        binding.arrowback.setOnClickListener(){
+            findNavController().popBackStack()
+        }
+        binding.recordButton.setOnClickListener(){
+            viewModel.checkSpelling(requireContext(), lessonToken)
+        }
+        /*
         with(binding){
-            soundName.text = resources.getStringArray(R.array.sounds)[soundId]
-            soundInfoButton.setOnClickListener {
-                findNavController().navigate(R.id.action_soundTrainFragment_to_soundInfoFragment,
-                    bundleOf("soundId" to soundId)
-                )
-            }
-
-            binding.arrowback.setOnClickListener(){
-                findNavController().popBackStack()
-            }
-
-
             recordButton.setOnClickListener{
 
                 recordButton.setImageResource(R.drawable.baseline_keyboard_voice_48)
@@ -95,12 +105,13 @@ class SoundTrainFragment: Fragment() {
                 SpeechRecoginzerListener(successListener,errorListener)
             )
         }
+         */
     }
 
 
     override fun onDestroyView() {
         super.onDestroyView()
-        speechRecognizer.destroy();
+        //speechRecognizer.destroy();
         _binding = null
     }
 }

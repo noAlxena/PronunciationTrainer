@@ -14,24 +14,13 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SoundTrainViewModel: ViewModel() {
+class SoundInfoViewModel: ViewModel() {
     private val API = Retrofit
         .Builder().baseUrl("http://10.0.2.2:5000")
         .addConverterFactory(GsonConverterFactory.create()).build()
     val service: APIController = API.create(APIController::class.java)
     val lessonInfo: MutableLiveData<LessonDAO> = MutableLiveData()
-    val grade: MutableLiveData<LessonGradeDAO> = MutableLiveData()
 
-    fun checkSpelling(context: Context, lessonToken: String) {
-        val db = SoundDatabase.getDatabase(context)
-        GlobalScope.launch {
-            val studentToken = db.ProfileSettingDAO().select()?.token?:""
-            val grd = service.checkRecording(studentToken, lessonToken).execute().body()
-            grd?.let{
-                grade.postValue(it)
-            }
-        }
-    }
     fun getLessonInfo(lessonToken: String){
         GlobalScope.launch {
             val lsn = service.getLesson(lessonToken).execute().body()

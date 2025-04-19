@@ -15,7 +15,7 @@
     <string name="record">Записать</string>
     <string name="record_start">Запись началась</string>
     <string name="next">Далее</string>
-    <string name="sound_info">Информация о звуке</string>
+    <string name="lesson_info">Информация об уроке</string>
     <string name="speak">Говорите</string>
     <string name="grade">Ваша оценка:</string>
     <string name="not_recognized">Не распознано</string>

@@ -31,15 +31,13 @@ class ListFragment:Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getCategories(requireContext())
-        viewModel.categories.observe(viewLifecycleOwner){
-            /*
-            binding.rec.adapter = CategoryAdapter(it) { soundId: Int ->
+        viewModel.getLessons(requireContext())
+        viewModel.lessons.observe(viewLifecycleOwner){
+            binding.rec.adapter = CategoryAdapter(it){ lessonToken: String ->
                 findNavController().navigate(
                     R.id.action_listFragment_to_soundTrainFragment,
-                    bundleOf("soundId" to soundId))
+                    bundleOf("lessonToken" to lessonToken))
             }
-            */
         }
         binding.rec.layoutManager = LinearLayoutManager(context)
 

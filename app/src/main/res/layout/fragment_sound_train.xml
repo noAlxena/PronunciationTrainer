@@ -29,11 +29,11 @@
 
 
     <TextView
-        android:id="@+id/soundName"
+        android:id="@+id/textTitle"
         style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="60dp" />
+        android:textSize="60sp" />
 
     <!--<Button
         android:id="@+id/soundInfoButton"
@@ -44,33 +44,28 @@
         android:text="@string/sound_info" />-->
 
     <TextView
-        android:id="@+id/soundInfoButton"
+        android:id="@+id/buttonLessonInfo"
         style="@style/main"
         android:layout_width="match_parent"
         android:background="@drawable/dashed_underline"
         android:layout_height="40dp"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:gravity="center"
         android:textColor="#A493C1"
-        android:text="@string/sound_info" />
-
-
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:text="@string/lesson_info" />
 
     <TextView
+        android:id="@+id/textContent"
         style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/instructions"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="40dp" />
 
     <!-- <Button
         android:id="@+id/recordButton"
@@ -90,19 +85,19 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="40dp" />
 
     <TextView
+        android:id="@+id/textTranscriptionLabel"
         style="@style/main"
-        android:id="@+id/said"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:gravity="center"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/results"
+        android:id="@+id/textTranscription"
         style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -110,19 +105,18 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="20dp" />
 
     <TextView
+        android:id="@+id/textGradeLabel"
         style="@style/main"
-        android:id="@+id/mark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:gravity="center"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/grade"
+        android:id="@+id/textGrade"
         style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
