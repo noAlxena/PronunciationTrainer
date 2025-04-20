@@ -1,10 +1,8 @@
 package com.alxena.pronunciationtrainer.ui.fragment
 
-import android.annotation.SuppressLint
-import android.content.Intent
+import android.Manifest
+import android.media.MediaRecorder
 import android.os.Bundle
-import android.speech.RecognitionListener
-import android.speech.RecognizerIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,16 +13,20 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentSoundTrainBinding
-import com.alxena.pronunciationtrainer.ui.util.SpeechRecoginzerListener
 import com.alxena.pronunciationtrainer.ui.viewmodel.SoundTrainViewModel
-import java.util.Locale
+import java.io.IOException
 
+private const val REQUEST_RECORD_AUDIO_PERMISSION = 200
 
 class SoundTrainFragment: Fragment() {
     private var _binding: FragmentSoundTrainBinding? = null
     private val viewModel: SoundTrainViewModel by viewModels()
     private val binding get() = _binding!!
-    //private lateinit var speechRecognizer: SpeechRecognizer
+    var recorder: MediaRecorder? = null
+    var recording = false
+    lateinit var fileName: String
+    lateinit var lessonToken: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,12 +36,17 @@ class SoundTrainFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val lessonToken = arguments?.getString("lessonToken")?:""
+        fileName = "${requireContext().externalCacheDir?.absolutePath}/audiorecordtest.mp3"
+        var permissions: Array<String> = arrayOf(Manifest.permission.RECORD_AUDIO)
+        requestPermissions(permissions, REQUEST_RECORD_AUDIO_PERMISSION)
+        lessonToken = arguments?.getString("lessonToken")?:""
 
         viewModel.getLessonInfo(lessonToken)
         viewModel.grade.observe(viewLifecycleOwner){
             binding.textGrade.text = "${it.grade}"
             binding.textTranscription.text = it.transcription
+            binding.textGradeLabel.text = "Оценка за урок"
+            binding.textTranscriptionLabel.text = "транскрипция"
         }
         viewModel.lessonInfo.observe(viewLifecycleOwner){
             binding.textTitle.text = it.title
@@ -54,62 +61,44 @@ class SoundTrainFragment: Fragment() {
             findNavController().popBackStack()
         }
         binding.recordButton.setOnClickListener(){
-            viewModel.checkSpelling(requireContext(), lessonToken)
+            if(recording){
+                stopRecording()
+            }
+            else{
+                startRecording()
+            }
+            recording = !recording
         }
-        /*
-        with(binding){
-            recordButton.setOnClickListener{
-
-                recordButton.setImageResource(R.drawable.baseline_keyboard_voice_48)
-
-                Toast.makeText(requireContext(), resources.getString(R.string.record_start), Toast.LENGTH_LONG).show()
-
-                val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-                intent.putExtra(
-                    RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                    RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-                )
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ru")
-                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, resources.getString(R.string.speak))
-                speechRecognizer.startListening(intent)
-            }
-
-            val successListener = {
-                    result :String ->
-                mark.text = resources.getString(R.string.grade)
-                said.text = resources.getString(R.string.sound_info)
-                recordButton.setImageResource(R.drawable.baseline_keyboard_voice_24)
-                if(viewModel.checkSpelling(requireContext(), soundId,result)) {
-                    grade.text = resources.getString(R.string.correct)
-                }
-                else
-                    grade.text = resources.getString(R.string.wrong)
-                results.text = result
-            }
-            val errorListener = {
-
-                code :Int->
-                recordButton.setImageResource(R.drawable.baseline_keyboard_voice_24)
-                mark.text = " "
-                said.text = " "
-                grade.text = resources.getString(R.string.wrong)
-                if(code == 0)
-                    results.text = resources.getString(R.string.not_recognized)
-                else
-                    results.text = resources.getString(R.string.no_permision)
-            }
-            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context)
-            speechRecognizer.setRecognitionListener(
-                SpeechRecoginzerListener(successListener,errorListener)
-            )
-        }
-         */
     }
-
+    fun startRecording() {
+        recorder = MediaRecorder().apply {
+            setAudioSource(MediaRecorder.AudioSource.MIC)
+            setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            setOutputFile(fileName)
+            setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            setAudioEncodingBitRate(384000)
+            setAudioSamplingRate(16000)
+            try {
+                prepare()
+            } catch (e: IOException) {
+                Toast.makeText(requireContext(), "prepare error", Toast.LENGTH_LONG).show()
+            }
+            start()
+        }
+        binding.recordButton.setImageResource(R.drawable.baseline_keyboard_voice_48)
+    }
+    fun stopRecording(){
+        recorder?.apply{
+            stop()
+            release()
+        }
+        recorder = null
+        viewModel.checkSpelling(requireContext(), fileName, lessonToken)
+        binding.recordButton.setImageResource(R.drawable.baseline_keyboard_voice_24)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        //speechRecognizer.destroy();
         _binding = null
     }
 }

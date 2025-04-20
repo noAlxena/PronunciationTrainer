@@ -26,9 +26,9 @@ class SoundAdapter (private val lessons: List<TopGradeDAO>, private val listener
             soundButton.text = lessons[position].title
             if(lessons[position].grade == 0)
                 soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_main))
-            else if(lessons[position].grade == 1)
+            else if(lessons[position].grade < 4)
                 soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_bad))
-            else if(lessons[position].grade == 2)
+            else if(lessons[position].grade < 8)
                 soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_medium))
             else
                 soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_complete))

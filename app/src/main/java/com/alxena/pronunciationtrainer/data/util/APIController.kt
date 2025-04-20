@@ -34,13 +34,8 @@ interface APIController {
     fun getLessonGrades(@Path("studentToken") studentToken: String, @Path("lessonToken") lessonToken: String) : Call<List<LessonGradeDAO>>
 
     @POST("/students/{studentToken}/grades/{lessonToken}")
-    fun checkRecording(@Path("studentToken") studentToken: String, @Path("lessonToken") lessonToken: String) : Call<LessonGradeDAO>//TODO
+    fun checkRecording(@Body body: RequestBody, @Path("studentToken") studentToken: String, @Path("lessonToken") lessonToken: String) : Call<LessonGradeDAO>
 
     @GET("/lessons/{lessonToken}")
     fun getLesson(@Path("lessonToken") lessonToken: String):Call<LessonDAO>
-
-    /*
-    @GET("/grade")
-    fun getGrades(@Body body: RequestBody) : Call<ArrayList<GradeDAO>>
-    */
 }

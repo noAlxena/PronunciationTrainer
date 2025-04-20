@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
+import com.alxena.pronunciationtrainer.data.util.APIInstance
 import com.alxena.pronunciationtrainer.databinding.FragmentRegistrationBinding
 
 class RegistrationFragment: Fragment() {
@@ -26,6 +27,9 @@ class RegistrationFragment: Fragment() {
         }
         binding.buttonStudent.setOnClickListener(){
             findNavController().navigate(R.id.action_registrationFragment_to_studentRegFragment)
+        }
+        binding.buttonUrl.setOnClickListener(){
+            APIInstance.ConnectionUrl = binding.editTextURL.text.toString()
         }
     }
     override fun onDestroyView() {
