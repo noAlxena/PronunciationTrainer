@@ -5,13 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alxena.pronunciationtrainer.data.model.ProfileSettingsEntity
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
-import com.alxena.pronunciationtrainer.data.util.APIController
 import com.alxena.pronunciationtrainer.data.util.APIInstance
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class TeacherRegViewModel:ViewModel() {
     val registered: MutableLiveData<Boolean> = MutableLiveData()

@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
 import com.alxena.pronunciationtrainer.data.util.APIInstance
-import com.alxena.pronunciationtrainer.data.util.TestData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -17,8 +16,6 @@ class SettingViewModel:ViewModel() {
         val db = SoundDatabase.getDatabase(context)
         GlobalScope.launch {
             db.clearAllTables()
-            for(a in TestData.Sounds)
-                db.SoundProfileDAO().insert(a)
         }
     }
 }

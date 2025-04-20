@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentInfoBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.InfoViewModel
-import com.alxena.pronunciationtrainer.ui.viewmodel.StartViewModel
 
 class InfoFragment: Fragment() {
     private var _binding: FragmentInfoBinding? = null

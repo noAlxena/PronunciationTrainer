@@ -10,8 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentTeacherRegBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.TeacherRegViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class TeacherRegFragment: Fragment() {
     private var _binding: FragmentTeacherRegBinding? = null

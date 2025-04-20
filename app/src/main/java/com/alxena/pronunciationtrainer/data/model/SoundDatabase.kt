@@ -5,9 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(SoundProfileEntity::class, ProfileSettingsEntity::class), version = 1)
+@Database(entities = arrayOf(ProfileSettingsEntity::class), version = 1)
 abstract class SoundDatabase:RoomDatabase() {
-    abstract fun SoundProfileDAO(): SoundProfileDAO
     abstract fun ProfileSettingDAO(): ProfileSettingDAO
     companion object {
         private var INSTANCE: SoundDatabase? = null
@@ -20,7 +19,7 @@ abstract class SoundDatabase:RoomDatabase() {
                     SoundDatabase::class.java,
                     "data.db").build()
             }
-            return INSTANCE!!//переработать
+            return INSTANCE!!//TODO переработать
         }
     }
 }

@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alxena.pronunciationtrainer.data.model.ProfileSettingsEntity
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
-import com.alxena.pronunciationtrainer.data.util.SoundCategory
-import com.alxena.pronunciationtrainer.data.util.TestData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

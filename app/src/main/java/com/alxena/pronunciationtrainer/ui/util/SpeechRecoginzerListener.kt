@@ -3,8 +3,6 @@ package com.alxena.pronunciationtrainer.ui.util
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.SpeechRecognizer
-import android.util.Log
-import android.widget.Toast
 
 class SpeechRecoginzerListener(
     val successListener: (text:String)->Unit,

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alxena.pronunciationtrainer.R
-import com.alxena.pronunciationtrainer.data.model.SoundProfileEntity
 import com.alxena.pronunciationtrainer.data.model.StudentDAO
 import com.alxena.pronunciationtrainer.databinding.ViewStudentBinding
 

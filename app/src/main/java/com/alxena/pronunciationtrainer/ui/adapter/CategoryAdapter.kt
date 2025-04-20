@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.data.util.LessonCategory
-import com.alxena.pronunciationtrainer.data.util.SoundCategory
 import com.alxena.pronunciationtrainer.databinding.ViewCategoryBinding
 class CategoryAdapter(private val categories:List<LessonCategory>, private val listener:(String)->Unit):
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>()

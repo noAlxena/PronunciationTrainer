@@ -7,17 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.room.Room
 import com.alxena.pronunciationtrainer.R
-import com.alxena.pronunciationtrainer.data.model.SoundDatabase
-import com.alxena.pronunciationtrainer.data.util.TestData
 import com.alxena.pronunciationtrainer.databinding.FragmentStartBinding
-import com.alxena.pronunciationtrainer.ui.viewmodel.ListViewModel
 import com.alxena.pronunciationtrainer.ui.viewmodel.StartViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class StartFragment: Fragment() {
     private var _binding: FragmentStartBinding? = null

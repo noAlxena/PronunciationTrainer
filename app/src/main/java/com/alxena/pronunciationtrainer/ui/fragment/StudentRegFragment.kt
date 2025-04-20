@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentStudentRegBinding
-import com.alxena.pronunciationtrainer.ui.viewmodel.StartViewModel
 import com.alxena.pronunciationtrainer.ui.viewmodel.StudentRegViewModel
 
 class StudentRegFragment: Fragment() {

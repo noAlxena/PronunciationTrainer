@@ -4,15 +4,10 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
-import com.alxena.pronunciationtrainer.data.util.APIController
 import com.alxena.pronunciationtrainer.data.util.APIInstance
 import com.alxena.pronunciationtrainer.data.util.LessonCategory
-import com.alxena.pronunciationtrainer.data.util.SoundCategory
-import com.alxena.pronunciationtrainer.data.util.TestData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class ListViewModel:ViewModel() {
     val lessons: MutableLiveData<ArrayList<LessonCategory>> = MutableLiveData()
