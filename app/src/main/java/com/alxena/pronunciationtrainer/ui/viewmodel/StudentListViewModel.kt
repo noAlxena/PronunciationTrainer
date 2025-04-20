@@ -8,6 +8,7 @@ import com.alxena.pronunciationtrainer.data.model.ProfileSettingsEntity
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
 import com.alxena.pronunciationtrainer.data.model.StudentDAO
 import com.alxena.pronunciationtrainer.data.util.APIController
+import com.alxena.pronunciationtrainer.data.util.APIInstance
 import com.alxena.pronunciationtrainer.data.util.SoundCategory
 import com.alxena.pronunciationtrainer.data.util.TestData
 import kotlinx.coroutines.GlobalScope
@@ -17,10 +18,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class StudentListViewModel:ViewModel() {
-    private val API = Retrofit
-        .Builder().baseUrl("http://10.0.2.2:5000")
-        .addConverterFactory(GsonConverterFactory.create()).build()
-    val service: APIController = API.create(APIController::class.java)
     val students: MutableLiveData<List<StudentDAO>> = MutableLiveData()
     fun getStudents(context:Context){
         val db = SoundDatabase.getDatabase(context)
@@ -29,7 +26,7 @@ class StudentListViewModel:ViewModel() {
         GlobalScope.launch {
             val settings = db.ProfileSettingDAO().select()
             settings?.let {
-                val response = service.getStudents(it.token).execute()
+                val response = APIInstance.service.getStudents(it.token).execute()
                 if(response.body()!=null){
                     students.postValue(response.body())
                 }

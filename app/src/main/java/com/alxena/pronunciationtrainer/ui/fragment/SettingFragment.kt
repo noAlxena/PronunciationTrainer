@@ -28,7 +28,9 @@ class SettingFragment: Fragment() {
         binding.resetButton.setOnClickListener{
             viewModel.reset(requireContext())
         }
-
+        binding.buttonUrl.setOnClickListener(){
+            viewModel.setURL(binding.editTextURL.text.toString())
+        }
         binding.arrowback.setOnClickListener(){
             findNavController().popBackStack()
         }

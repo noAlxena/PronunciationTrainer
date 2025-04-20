@@ -7,6 +7,7 @@ import com.alxena.pronunciationtrainer.data.model.LessonDAO
 import com.alxena.pronunciationtrainer.data.model.LessonGradeDAO
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
 import com.alxena.pronunciationtrainer.data.util.APIController
+import com.alxena.pronunciationtrainer.data.util.APIInstance
 import com.alxena.pronunciationtrainer.data.util.LessonCategory
 import com.alxena.pronunciationtrainer.data.util.SoundData
 import kotlinx.coroutines.GlobalScope
@@ -15,10 +16,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class SoundTrainViewModel: ViewModel() {
-    private val API = Retrofit
-        .Builder().baseUrl("http://10.0.2.2:5000")
-        .addConverterFactory(GsonConverterFactory.create()).build()
-    val service: APIController = API.create(APIController::class.java)
     val lessonInfo: MutableLiveData<LessonDAO> = MutableLiveData()
     val grade: MutableLiveData<LessonGradeDAO> = MutableLiveData()
 
@@ -26,7 +23,7 @@ class SoundTrainViewModel: ViewModel() {
         val db = SoundDatabase.getDatabase(context)
         GlobalScope.launch {
             val studentToken = db.ProfileSettingDAO().select()?.token?:""
-            val grd = service.checkRecording(studentToken, lessonToken).execute().body()
+            val grd = APIInstance.service.checkRecording(studentToken, lessonToken).execute().body()
             grd?.let{
                 grade.postValue(it)
             }
@@ -34,7 +31,7 @@ class SoundTrainViewModel: ViewModel() {
     }
     fun getLessonInfo(lessonToken: String){
         GlobalScope.launch {
-            val lsn = service.getLesson(lessonToken).execute().body()
+            val lsn = APIInstance.service.getLesson(lessonToken).execute().body()
             lsn?.let{
                 lessonInfo.postValue(it)
             }
