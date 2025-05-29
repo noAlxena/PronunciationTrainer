@@ -1,5 +1,6 @@
 package com.alxena.pronunciationtrainer.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -25,28 +26,31 @@ class StartFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getSettings(requireContext())
-        viewModel.settings.observe(viewLifecycleOwner){
-            if(it==null)
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        val role = sharedPref?.getString("role","")?:""
+        if(role.isBlank())
+        {
+            findNavController().navigate(R.id.action_startFragment_to_authorizationFragment)
+        }
+        else
+        {
+            viewModel.refresh(activity)
+            val first_name = sharedPref?.getString("first_name","")?:""
+            if(first_name.isBlank())
             {
-                findNavController().navigate(R.id.action_startFragment_to_registrationFragment)
+                findNavController().navigate(R.id.action_startFragment_to_userDataFragment)
             }
             else
             {
-                binding.loginText.text = it.login
-                if(it.teacherToken == null)
-                {
-                    binding.roleText.text = "учитель"
-                }
-                else
-                {
-                    binding.roleText.text = "ученик"
-                }
+                binding.loginText.text = first_name
+                binding.roleText.text = if(role == "teacher") "учитель" else "ученик"
             }
-            Log.d("a","${it==null}")
         }
+
         binding.startButton.setOnClickListener{
-            if(viewModel.settings.value?.teacherToken == null)
+            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+            val role = sharedPref?.getString("role","")?:""
+            if(role == "teacher")
             {
                 findNavController().navigate(R.id.action_startFragment_to_studentListFragment)
             }

@@ -10,7 +10,7 @@
     <string name="autor2">Малыгин Алексей Андреевич, группа 151112</string>
     <string name="vowels">Гласные звуки</string>
     <string name="consonants">Согласные звуки</string>
-    <string name="reset">Сбросить прогресс</string>
+    <string name="reset">Выйти из аккаунта</string>
     <string name="pronounce">Вы произнесли:</string>
     <string name="record">Записать</string>
     <string name="record_start">Запись началась</string>

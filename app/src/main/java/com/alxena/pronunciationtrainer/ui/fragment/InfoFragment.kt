@@ -1,5 +1,6 @@
 package com.alxena.pronunciationtrainer.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,22 +28,11 @@ class InfoFragment: Fragment() {
         binding.arrowback.setOnClickListener{
             findNavController().popBackStack()
         }
-        viewModel.getSettings(requireContext())
-        viewModel.settings.observe(viewLifecycleOwner){
-            binding.textLogin.text = it.login
-            binding.textToken.text = it.token
-            if(it.teacherToken == null)
-            {
-                binding.textTeacherTokenLabel.visibility = View.GONE
-                binding.textTeacherToken.visibility = View.GONE
-            }
-            else
-            {
-                binding.textTeacherToken.text = it.teacherToken
-            }
-
-        }
-
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        binding.textLogin.text = sharedPref?.getString("login","")?:""
+        binding.textFirstName.text = sharedPref?.getString("first_name","")?:""
+        binding.textSecondName.text = sharedPref?.getString("second_name","")?:""
+        binding.textRole.text = if(sharedPref?.getString("role","")?:"" == "teacher") "Учитель" else "Ученик"
     }
     override fun onDestroyView() {
         super.onDestroyView()

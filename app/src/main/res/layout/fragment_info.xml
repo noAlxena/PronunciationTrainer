@@ -27,7 +27,7 @@
         style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="логин"
+        android:text="Логин"
         android:textSize="35sp"
         />
 
@@ -41,7 +41,72 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Имя"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/textFirstName"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sample" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Фамилия"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/textSecondName"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sample" />
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Роль"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/textRole"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sample" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
 
     <TextView
         style="@style/header"
@@ -49,7 +114,7 @@
         android:layout_height="wrap_content"
         android:text="ключ"
         android:textSize="35sp"
-        />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textToken"
@@ -57,11 +122,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="XxXxXxXxXx" />
+        android:text="XxXxXxXxXx"
+        android:visibility="gone" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textTeacherTokenLabel"
@@ -70,7 +137,7 @@
         android:layout_height="wrap_content"
         android:text="ключ преподавателя"
         android:textSize="35sp"
-        />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textTeacherToken"
@@ -78,5 +145,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="XxXxXxXxXx" />
+        android:text="XxXxXxXxXx"
+        android:visibility="gone" />
 </LinearLayout>

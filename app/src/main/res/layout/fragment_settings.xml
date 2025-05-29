@@ -25,7 +25,8 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/editTextURL"
@@ -33,13 +34,15 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textUri"
-        android:text="http://10.0.2.2:5000" />
+        android:text="http://10.0.2.2:5000"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/buttonUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="обновить URL" />
+        android:text="обновить URL"
+        android:visibility="gone" />
 
     <Space
         android:layout_width="match_parent"

@@ -10,18 +10,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
-import com.alxena.pronunciationtrainer.databinding.FragmentRegistrationBinding
-import com.alxena.pronunciationtrainer.ui.viewmodel.registrationViewModel
+import com.alxena.pronunciationtrainer.databinding.FragmentLoginBinding
+import com.alxena.pronunciationtrainer.ui.viewmodel.LoginViewModel
 
-class RegistrationFragment: Fragment() {
-    private var _binding: FragmentRegistrationBinding? = null
-    private val viewModel: registrationViewModel by viewModels()
+class LoginFragment: Fragment() {
+    private var _binding: FragmentLoginBinding? = null
+    private val viewModel: LoginViewModel by viewModels()
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRegistrationBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,20 +32,20 @@ class RegistrationFragment: Fragment() {
         binding.button.setOnClickListener(){
             val login = binding.editLogin.text.toString()
             val password = binding.editPassword.text.toString()
-            val isTeacher = binding.isTeacher.isChecked
-            viewModel.register(login, password, if(isTeacher) "teacher" else "student")
-            //viewModel.getToken(requireContext(), teacherToken, login)
+            viewModel.getToken(login, password)
         }
         viewModel.status.observe(viewLifecycleOwner){
             if(it == null)
             {
-                Toast.makeText(requireContext(),"failed to login", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(),"failed to login",Toast.LENGTH_LONG).show()
             }
             else
             {
                 val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
                 with (sharedPref!!.edit()) {
                     putString("login", viewModel.info.value?.login)
+                    putString("first_name", viewModel.info.value?.first_name)
+                    putString("second_name", viewModel.info.value?.second_name)
                     putString("role", viewModel.info.value?.role)
                     putString("refresh_token", it.refresh_token)
                     apply()

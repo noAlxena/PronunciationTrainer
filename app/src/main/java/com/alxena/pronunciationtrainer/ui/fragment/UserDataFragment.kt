@@ -8,42 +8,39 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.alxena.pronunciationtrainer.databinding.FragmentSettingsBinding
-import com.alxena.pronunciationtrainer.ui.viewmodel.SettingViewModel
+import com.alxena.pronunciationtrainer.databinding.FragmentUserdataBinding
+import com.alxena.pronunciationtrainer.ui.viewmodel.UserDataViewModel
 
-class SettingFragment: Fragment() {
-    private val viewModel: SettingViewModel by viewModels()
-    private var _binding: FragmentSettingsBinding? = null
+class UserDataFragment : Fragment() {
+    private var _binding: FragmentUserdataBinding? = null
+    private val viewModel: UserDataViewModel by viewModels()
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        _binding = FragmentUserdataBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.resetButton.setOnClickListener{
+        viewModel.info.observe(viewLifecycleOwner){
             val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
             with (sharedPref!!.edit()) {
-                putString("login", "none")
-                putString("first_name", "")
-                putString("second_name", "")
-                putString("role", "")
-                putString("access_token", "")
-                putString("refresh_token", "")
+                putString("first_name", it.first_name)
+                putString("second_name", it.second_name)
                 apply()
             }
             findNavController().popBackStack()
         }
-        //binding.buttonUrl.setOnClickListener(){
-        //    viewModel.setURL(binding.editTextURL.text.toString())
-        //}
-        binding.arrowback.setOnClickListener(){
-            findNavController().popBackStack()
+        binding.button.setOnClickListener{
+            val first_name = binding.editFirstName.text.toString()
+            val second_name = binding.editSecondName.text.toString()
+            viewModel.updateInfo(first_name, second_name)
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

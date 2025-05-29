@@ -9,6 +9,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class InfoViewModel : ViewModel() {
+    /*
     val settings: MutableLiveData<ProfileSettingsEntity> = MutableLiveData()
     fun getSettings(context: Context)
     {
@@ -17,4 +18,5 @@ class InfoViewModel : ViewModel() {
             settings.postValue(db.ProfileSettingDAO().select())
         }
     }
+     */
 }
