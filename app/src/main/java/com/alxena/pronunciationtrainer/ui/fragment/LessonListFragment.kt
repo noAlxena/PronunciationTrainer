@@ -13,6 +13,7 @@ import com.alxena.pronunciationtrainer.databinding.FragmentLessonListBinding
 import com.alxena.pronunciationtrainer.ui.adapter.CategoryAdapter
 import com.alxena.pronunciationtrainer.ui.viewmodel.LessonListViewModel
 
+//teachers list of students lessons
 class LessonListFragment: Fragment() {
     private var _binding: FragmentLessonListBinding? = null
     private val viewModel: LessonListViewModel by viewModels()
@@ -26,13 +27,15 @@ class LessonListFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val studentToken = arguments?.getString("token")?:""
-        viewModel.getLessons(studentToken)
+        val groupToken = arguments?.getString("groupToken")?:""
+        val studentToken = arguments?.getString("studentToken")?:""
+        viewModel.getLessons(groupToken, studentToken)
         viewModel.lessons.observe(viewLifecycleOwner){
             binding.rec.adapter = CategoryAdapter(it){ lessonToken: String ->
                 findNavController().navigate(
                     R.id.action_lessonListFragment_to_gradeListFragment,
                     androidx.core.os.bundleOf(
+                        "groupToken" to groupToken,
                         "studentToken" to studentToken,
                         "lessonToken" to lessonToken)
                 )

@@ -14,6 +14,7 @@ import com.alxena.pronunciationtrainer.databinding.FragmentListBinding
 import com.alxena.pronunciationtrainer.ui.adapter.CategoryAdapter
 import com.alxena.pronunciationtrainer.ui.viewmodel.ListViewModel
 
+//students list of lessons
 class ListFragment:Fragment() {
     private var _binding: FragmentListBinding? = null
     private val viewModel: ListViewModel by viewModels()
@@ -27,12 +28,17 @@ class ListFragment:Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLessons(requireContext())
+        val groupToken = arguments?.getString("groupToken")?:""
+        val studentToken = arguments?.getString("studentToken")?:""
+        viewModel.getLessons(groupToken, studentToken)
         viewModel.lessons.observe(viewLifecycleOwner){
             binding.rec.adapter = CategoryAdapter(it){ lessonToken: String ->
                 findNavController().navigate(
                     R.id.action_listFragment_to_soundTrainFragment,
-                    bundleOf("lessonToken" to lessonToken))
+                    bundleOf(
+                        "groupToken" to groupToken,
+                        "studentToken" to studentToken,
+                        "lessonToken" to lessonToken))
             }
         }
         binding.rec.layoutManager = LinearLayoutManager(context)

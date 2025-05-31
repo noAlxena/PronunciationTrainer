@@ -18,6 +18,7 @@ import java.io.IOException
 
 private const val REQUEST_RECORD_AUDIO_PERMISSION = 200
 
+//student lesson fragment
 class SoundTrainFragment: Fragment() {
     private var _binding: FragmentSoundTrainBinding? = null
     private val viewModel: SoundTrainViewModel by viewModels()
@@ -25,6 +26,8 @@ class SoundTrainFragment: Fragment() {
     var recorder: MediaRecorder? = null
     var recording = false
     lateinit var fileName: String
+    lateinit var groupToken: String
+    lateinit var studentToken: String
     lateinit var lessonToken: String
 
     override fun onCreateView(
@@ -36,10 +39,12 @@ class SoundTrainFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        groupToken = arguments?.getString("groupToken")?:""
+        studentToken = arguments?.getString("studentToken")?:""
+        lessonToken = arguments?.getString("lessonToken")?:""
         fileName = "${requireContext().externalCacheDir?.absolutePath}/audiorecordtest.mp3"
         var permissions: Array<String> = arrayOf(Manifest.permission.RECORD_AUDIO)
         requestPermissions(permissions, REQUEST_RECORD_AUDIO_PERMISSION)
-        lessonToken = arguments?.getString("lessonToken")?:""
 
         viewModel.getLessonInfo(lessonToken)
         viewModel.grade.observe(viewLifecycleOwner){
@@ -93,7 +98,7 @@ class SoundTrainFragment: Fragment() {
             release()
         }
         recorder = null
-        viewModel.checkSpelling(requireContext(), fileName, lessonToken)
+        viewModel.checkSpelling(groupToken, studentToken, lessonToken, fileName)
         binding.recordButton.setImageResource(R.drawable.baseline_keyboard_voice_24)
     }
 

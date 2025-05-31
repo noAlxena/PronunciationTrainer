@@ -11,9 +11,6 @@
         tools:layout="@layout/fragment_start"
         android:label="StartFragment">
         <action
-            android:id="@+id/action_startFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-        <action
             android:id="@+id/action_startFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
         <action
@@ -23,14 +20,17 @@
             android:id="@+id/action_startFragment_to_authorsFragment"
             app:destination="@id/authorsFragment" />
         <action
-            android:id="@+id/action_startFragment_to_studentListFragment"
-            app:destination="@id/studentListFragment" />
-        <action
             android:id="@+id/action_startFragment_to_authorizationFragment"
             app:destination="@id/authorizationFragment" />
         <action
             android:id="@+id/action_startFragment_to_userDataFragment"
             app:destination="@id/userDataFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_teacherGroupFragment"
+            app:destination="@id/teacherGroupFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_studentGroupFragment"
+            app:destination="@id/studentGroupFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorsFragment"
@@ -120,4 +120,63 @@
         android:name="com.alxena.pronunciationtrainer.ui.fragment.UserDataFragment"
         android:label="fragment_userdata"
         tools:layout="@layout/fragment_userdata" />
+    <fragment
+        android:id="@+id/studentGroupFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StudentGroupFragment"
+        android:label="fragment_student_group"
+        tools:layout="@layout/fragment_student_group" >
+        <action
+            android:id="@+id/action_studentGroupFragment_to_studentGroupInviteFragment"
+            app:destination="@id/studentGroupInviteFragment" />
+        <action
+            android:id="@+id/action_studentGroupFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentGroupInviteFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StudentGroupInviteFragment"
+        android:label="fragment_student_group_invite"
+        tools:layout="@layout/fragment_student_group_invite" >
+        <action
+            android:id="@+id/action_studentGroupInviteFragment_to_studentGroupInvite2Fragment"
+            app:destination="@id/studentGroupInvite2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentGroupInvite2Fragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.StudentGroupInvite2Fragment"
+        android:label="fragment_student_group_invite2"
+        tools:layout="@layout/fragment_student_group_invite2" />
+    <fragment
+        android:id="@+id/teacherGroupFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.TeacherGroupFragment"
+        android:label="fragment_teacher_group"
+        tools:layout="@layout/fragment_teacher_group" >
+        <action
+            android:id="@+id/action_teacherGroupFragment_to_teacherGroupCreateFragment"
+            app:destination="@id/teacherGroupCreateFragment" />
+        <action
+            android:id="@+id/action_teacherGroupFragment_to_teacherGroupInviteFragment"
+            app:destination="@id/teacherGroupInviteFragment" />
+        <action
+            android:id="@+id/action_teacherGroupFragment_to_teacherGroupInvitedFragment"
+            app:destination="@id/teacherGroupInvitedFragment" />
+        <action
+            android:id="@+id/action_teacherGroupFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherGroupCreateFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.TeacherGroupCreateFragment"
+        android:label="fragment_teacher_group_create"
+        tools:layout="@layout/fragment_teacher_group_create" />
+    <fragment
+        android:id="@+id/teacherGroupInviteFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.TeacherGroupInviteFragment"
+        android:label="fragment_teacher_group_invite"
+        tools:layout="@layout/fragment_teacher_group_invite" />
+    <fragment
+        android:id="@+id/teacherGroupInvitedFragment"
+        android:name="com.alxena.pronunciationtrainer.ui.fragment.TeacherGroupInvitedFragment"
+        android:label="fragment_teacher_group_invited"
+        tools:layout="@layout/fragment_teacher_group_invited" />
 </navigation>

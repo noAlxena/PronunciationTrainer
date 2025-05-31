@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragment.SettingFragment">
+    tools:context=".ui.fragment.TeacherGroupCreateFragment">
     <ImageButton
         android:id="@+id/arrowback"
         android:layout_width="40dp"
@@ -15,43 +15,27 @@
         android:src="@drawable/baseline_arrow_back_24" />
 
     <TextView
-        android:id="@+id/settings"
         style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/options"
+        android:text="Создание группы"
         android:textSize="50sp"
         />
-
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:visibility="gone" />
-
+        android:layout_height="40dp"/>
     <EditText
-        android:id="@+id/editTextURL"
+        android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textUri"
-        android:text="http://10.0.2.2:5000"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/buttonUrl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="обновить URL"
-        android:visibility="gone" />
-
+        android:text="Название"/>
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
-
+        android:layout_height="20dp"/>
     <Button
-        android:id="@+id/resetButton"
+        android:id="@+id/button"
         style="@style/main"
         android:layout_width="match_parent"
         android:layout_height="103dp"
-        android:text="@string/reset" />
+        android:text="Создать" />
 </LinearLayout>

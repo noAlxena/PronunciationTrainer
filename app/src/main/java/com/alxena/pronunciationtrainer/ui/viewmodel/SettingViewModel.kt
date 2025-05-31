@@ -11,11 +11,4 @@ class SettingViewModel:ViewModel() {
     fun setURL(newUrl: String){
         APIInstance.ConnectionUrl = newUrl
     }
-
-    fun reset(context: Context){
-        val db = SoundDatabase.getDatabase(context)
-        GlobalScope.launch {
-            db.clearAllTables()
-        }
-    }
 }

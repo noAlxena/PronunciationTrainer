@@ -10,6 +10,7 @@ import com.alxena.pronunciationtrainer.data.model.InviteTokenDAO
 import com.alxena.pronunciationtrainer.data.model.TokenPairDAO
 import com.alxena.pronunciationtrainer.data.model.UserDAO
 import com.alxena.pronunciationtrainer.data.model.GroupLoginDAO
+import com.alxena.pronunciationtrainer.data.model.MessageDAO
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -33,10 +34,12 @@ interface APIController {
     fun getUserInfo(@Header("Authorization") token: String): Call<UserDAO>
 
     @POST("/userInfo")
-    fun changeUserInfo(@Header("Authorization") token: String, @Body body: RequestBody): Call<UserDAO>
+    fun changeUserInfo(@Header("Authorization") token: String,
+                       @Body body: RequestBody): Call<UserDAO>
 
     @POST("/groups")
-    fun createGroup(@Header("Authorization") token: String, @Body body: RequestBody): Call<GroupDAO>
+    fun createGroup(@Header("Authorization") token: String,
+                    @Body body: RequestBody): Call<GroupDAO>
 
     @GET("/groups")
     fun getGroupsTeacher(@Header("Authorization") token: String): Call<List<GroupDAO>>
@@ -45,38 +48,62 @@ interface APIController {
     fun getGroupsStudent(@Header("Authorization") token: String): Call<List<GroupLoginDAO>>
 
     @GET("/groups/{token}/invite")
-    fun invite(@Path("token") groupToken: String): Call<InviteTokenDAO>
+    fun invite(@Header("Authorization") token: String,
+               @Path("token") groupToken: String): Call<InviteTokenDAO>
 
     @GET("/groups/{token}/invited")
-    fun invited(@Path("token") groupToken: String): Call<List<StudentDAO>>
+    fun invited(@Header("Authorization") token: String,
+                @Path("token") groupToken: String): Call<List<StudentDAO>>
 
     //@GET("/groups/{token}/export")
     //fun invited(@Path("token") groupToken: String): Call<List<StudentInfo>>
 
+    @GET("invite/{itoken}")
+    fun checkInvite(@Header("Authorization") token: String,
+                     @Path("itoken") inviteToken: String) : Call<MessageDAO>
+
     @POST("invite/{itoken}")
-    fun invite(@Path("itoken") inviteToken: String, @Body body: RequestBody) : Call<StudentDAO>
+    fun acceptInvite(@Header("Authorization") token: String,
+                     @Path("itoken") inviteToken: String,
+                     @Body body: RequestBody) : Call<StudentDAO>
 
     @GET("/groups/{token}/students")
-    fun getStudents(@Path("token") groupToken: String) : Call<List<StudentDAO>>
+    fun getStudents(@Header("Authorization") token: String,
+                    @Path("token") groupToken: String) : Call<List<StudentDAO>>
 
     @POST("/groups/{token}/students/{stoken}/remove")
-    fun removeStudent(@Path("token") groupToken: String, @Path("stoken") studentToken: String) : Call<List<StudentDAO>>
+    fun removeStudent(@Header("Authorization") token: String,
+                      @Path("token") groupToken: String,
+                      @Path("stoken") studentToken: String) : Call<StudentDAO>
 
     @POST("/groups/{token}/students/{stoken}/accept")
-    fun acceptStudent(@Path("token") groupToken: String, @Path("stoken") studentToken: String) : Call<List<StudentDAO>>
+    fun acceptStudent(@Header("Authorization") token: String,
+                      @Path("token") groupToken: String,
+                      @Path("stoken") studentToken: String) : Call<StudentDAO>
 
     @GET("/groups/{token}/students/{stoken}/top/{ctoken}")
-    fun getTopGrades(@Path("token") groupToken: String, @Path("stoken") studentToken: String, @Path("ctoken") categoryToken: String) : Call<List<TopGradeDAO>>
+    fun getTopGrades(@Header("Authorization") token: String,
+                     @Path("token") groupToken: String,
+                     @Path("stoken") studentToken: String,
+                     @Path("ctoken") categoryToken: String) : Call<List<TopGradeDAO>>
 
     @GET("/groups/{token}/students/{stoken}/grades/{ltoken}")
-    fun getLessonGrades(@Path("token") groupToken: String, @Path("stoken") studentToken: String, @Path("ltoken") lessonToken: String) : Call<List<LessonGradeDAO>>
+    fun getLessonGrades(@Header("Authorization") token: String,
+                        @Path("token") groupToken: String,
+                        @Path("stoken") studentToken: String,
+                        @Path("ltoken") lessonToken: String) : Call<List<LessonGradeDAO>>
 
     @POST("/groups/{token}/students/{stoken}/grades/{ltoken}")
-    fun checkRecording(@Body body: RequestBody, @Path("token") groupToken: String, @Path("stoken") studentToken: String, @Path("ltoken") lessonToken: String) : Call<LessonGradeDAO>
+    fun checkRecording(@Header("Authorization") token: String,
+                       @Body body: RequestBody,
+                       @Path("token") groupToken: String,
+                       @Path("stoken") studentToken: String,
+                       @Path("ltoken") lessonToken: String) : Call<LessonGradeDAO>
 
     @GET("/categories")
-    fun getCategories():Call<List<CategoryDAO>>
+    fun getCategories(@Header("Authorization") token: String):Call<List<CategoryDAO>>
 
     @GET("/lessons/{lessonToken}")
-    fun getLesson(@Path("lessonToken") lessonToken: String):Call<LessonDAO>
+    fun getLesson(@Header("Authorization") token: String,
+                  @Path("lessonToken") lessonToken: String):Call<LessonDAO>
 }

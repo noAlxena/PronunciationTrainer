@@ -13,6 +13,7 @@ import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentStartBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.StartViewModel
 
+//app entry point
 class StartFragment: Fragment() {
     private var _binding: FragmentStartBinding? = null
     private val viewModel: StartViewModel by viewModels()
@@ -52,11 +53,11 @@ class StartFragment: Fragment() {
             val role = sharedPref?.getString("role","")?:""
             if(role == "teacher")
             {
-                findNavController().navigate(R.id.action_startFragment_to_studentListFragment)
+                findNavController().navigate(R.id.action_startFragment_to_teacherGroupFragment)
             }
             else
             {
-                findNavController().navigate(R.id.action_startFragment_to_listFragment)
+                findNavController().navigate(R.id.action_startFragment_to_studentGroupFragment)
             }
         }
         binding.infoButton.setOnClickListener{

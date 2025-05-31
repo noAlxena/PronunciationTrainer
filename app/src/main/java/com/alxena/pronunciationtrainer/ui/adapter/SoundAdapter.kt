@@ -33,7 +33,7 @@ class SoundAdapter (private val lessons: List<TopGradeDAO>, private val listener
             else
                 soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_complete))
             soundButton.setOnClickListener{
-                listener.invoke(lessons[position].token)
+                listener(lessons[position].token)
             }
         }
     }

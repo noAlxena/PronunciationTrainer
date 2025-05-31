@@ -13,6 +13,7 @@ import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentRegistrationBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.registrationViewModel
 
+//register in app
 class RegistrationFragment: Fragment() {
     private var _binding: FragmentRegistrationBinding? = null
     private val viewModel: registrationViewModel by viewModels()

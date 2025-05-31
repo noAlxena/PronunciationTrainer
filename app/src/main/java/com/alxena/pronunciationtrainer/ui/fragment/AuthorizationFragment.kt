@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentAuthorizationBinding
 
+//first auth
 class AuthorizationFragment: Fragment() {
     private var _binding: FragmentAuthorizationBinding? = null
     private val binding get() = _binding!!

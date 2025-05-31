@@ -13,6 +13,7 @@ import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentLoginBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.LoginViewModel
 
+//login in app
 class LoginFragment: Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val viewModel: LoginViewModel by viewModels()

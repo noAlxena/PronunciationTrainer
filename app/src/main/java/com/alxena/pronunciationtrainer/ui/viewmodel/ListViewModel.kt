@@ -11,21 +11,22 @@ import kotlinx.coroutines.launch
 
 class ListViewModel:ViewModel() {
     val lessons: MutableLiveData<ArrayList<LessonCategory>> = MutableLiveData()
-    fun getLessons(context:Context){
-        val db = SoundDatabase.getDatabase(context)
+    fun getLessons(groupToken: String, studentToken: String){
         GlobalScope.launch {
-            val studentToken = db.ProfileSettingDAO().select()?.token?:""
-            val categories = APIInstance.service.getCategories().execute().body()
+            val categories = APIInstance.service.getCategories(
+                APIInstance.getHeader()).execute().body()
             if(categories!=null)
             {
                 val cats = ArrayList<LessonCategory>()
                 for(cat in categories)
                 {
-                    val lessons = APIInstance.service.getTopGrades(studentToken, cat.token).execute().body()
+                    val lessons = APIInstance.service.getTopGrades(
+                        APIInstance.getHeader(),
+                        groupToken,
+                        studentToken,
+                        cat.token).execute().body()
                     if(lessons!=null)
-                    {
                         cats.add(LessonCategory(cat.title, cat.difficulty, cat.numColumn, lessons))
-                    }
                 }
                 lessons.postValue(cats)
             }

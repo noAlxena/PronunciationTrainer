@@ -9,14 +9,4 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class InfoViewModel : ViewModel() {
-    /*
-    val settings: MutableLiveData<ProfileSettingsEntity> = MutableLiveData()
-    fun getSettings(context: Context)
-    {
-        val db = SoundDatabase.getDatabase(context)
-        GlobalScope.launch {
-            settings.postValue(db.ProfileSettingDAO().select())
-        }
-    }
-     */
 }

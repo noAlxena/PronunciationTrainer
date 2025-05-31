@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.databinding.FragmentUserdataBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.UserDataViewModel
 
+//info about user
 class UserDataFragment : Fragment() {
     private var _binding: FragmentUserdataBinding? = null
     private val viewModel: UserDataViewModel by viewModels()

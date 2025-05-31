@@ -24,9 +24,9 @@ class StudentAdapter(private val students: List<StudentDAO>, private val listene
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         with(holder.binding){
-            textLogin.text = students[position].login
-            textLogin.setOnClickListener{
-                listener.invoke(students[position].token)
+            textName.text = students[position].first_name
+            textName.setOnClickListener{
+                listener(students[position].token)
             }
         }
     }

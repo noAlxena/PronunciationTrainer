@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.databinding.FragmentSettingsBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.SettingViewModel
 
+//setting of app
 class SettingFragment: Fragment() {
     private val viewModel: SettingViewModel by viewModels()
     private var _binding: FragmentSettingsBinding? = null

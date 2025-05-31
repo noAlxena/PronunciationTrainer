@@ -11,12 +11,15 @@ object APIInstance {
             .addConverterFactory(GsonConverterFactory.create()).build()
             .create(APIController::class.java)
     }
-    var access_token: String = "";
+    private var access_token: String = "";
     var refresh_token: String = "";
-    fun refresh(): String{
+    fun refresh(): String {
         val tokens = service.refresh("Bearer ${refresh_token}").execute().body()
         access_token = tokens?.access_token?:""
         refresh_token = tokens?.refresh_token?:""
         return refresh_token
+    }
+    fun getHeader():String {
+        return "Bearer ${access_token}"
     }
 }

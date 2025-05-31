@@ -12,6 +12,7 @@ import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentInfoBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.InfoViewModel
 
+//info about user
 class InfoFragment: Fragment() {
     private var _binding: FragmentInfoBinding? = null
     private val viewModel: InfoViewModel by viewModels()
@@ -32,7 +33,7 @@ class InfoFragment: Fragment() {
         binding.textLogin.text = sharedPref?.getString("login","")?:""
         binding.textFirstName.text = sharedPref?.getString("first_name","")?:""
         binding.textSecondName.text = sharedPref?.getString("second_name","")?:""
-        binding.textRole.text = if(sharedPref?.getString("role","")?:"" == "teacher") "Учитель" else "Ученик"
+        binding.textRole.text = if((sharedPref?.getString("role", "") ?: "") == "teacher") "Учитель" else "Ученик"
     }
     override fun onDestroyView() {
         super.onDestroyView()

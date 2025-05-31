@@ -18,7 +18,7 @@ class UserDataViewModel: ViewModel() {
                 .addFormDataPart("first_name", first_name)
                 .addFormDataPart("second_name", second_name)
                 .build()
-            val response = APIInstance.service.changeUserInfo("Bearer ${APIInstance.access_token}", requestBody).execute()
+            val response = APIInstance.service.changeUserInfo(APIInstance.getHeader(), requestBody).execute()
             info.postValue(response.body())
         }
     }

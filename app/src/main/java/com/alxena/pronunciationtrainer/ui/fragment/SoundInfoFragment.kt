@@ -12,6 +12,7 @@ import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentSoundInfoBinding
 import com.alxena.pronunciationtrainer.ui.viewmodel.SoundInfoViewModel
 
+//info about lesson
 class SoundInfoFragment: Fragment() {
     private var _binding: FragmentSoundInfoBinding? = null
     val viewModel: SoundInfoViewModel by viewModels()

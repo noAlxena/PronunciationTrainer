@@ -9,13 +9,10 @@ import kotlinx.coroutines.launch
 
 class SoundInfoViewModel: ViewModel() {
     val lessonInfo: MutableLiveData<LessonDAO> = MutableLiveData()
-
     fun getLessonInfo(lessonToken: String){
         GlobalScope.launch {
-            val lsn = APIInstance.service.getLesson(lessonToken).execute().body()
-            lsn?.let{
-                lessonInfo.postValue(it)
-            }
+            val request = APIInstance.service.getLesson(APIInstance.getHeader(), lessonToken)
+            lessonInfo.postValue(request.execute().body())
         }
     }
 }

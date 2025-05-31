@@ -9,9 +9,13 @@ import kotlinx.coroutines.launch
 
 class GradeListViewModel:ViewModel() {
     val grades: MutableLiveData<List<LessonGradeDAO>> = MutableLiveData()
-    fun getGrades(studentToken: String, lessonToken: String){
+    fun getGrades(groupToken: String, studentToken: String, lessonToken: String){
         GlobalScope.launch {
-            val response = APIInstance.service.getLessonGrades(studentToken, lessonToken).execute()
+            val response = APIInstance.service.getLessonGrades(
+                APIInstance.getHeader(),
+                groupToken,
+                studentToken,
+                lessonToken).execute()
             if(response.body()!=null){
                 grades.postValue(response.body())
             }
