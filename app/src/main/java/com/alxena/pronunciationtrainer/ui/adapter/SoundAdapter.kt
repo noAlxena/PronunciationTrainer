@@ -1,14 +1,13 @@
 package com.alxena.pronunciationtrainer.ui.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alxena.pronunciationtrainer.R
-import com.alxena.pronunciationtrainer.data.model.SoundProfileEntity
-import com.alxena.pronunciationtrainer.data.util.SoundCategory
+import com.alxena.pronunciationtrainer.data.model.TopGradeDAO
 import com.alxena.pronunciationtrainer.databinding.ViewSoundBinding
-class SoundAdapter (private val sounds: List<SoundProfileEntity>, private val listener:(Int)->Unit):
+
+class SoundAdapter (private val lessons: List<TopGradeDAO>, private val listener:(String)->Unit):
     RecyclerView.Adapter<SoundAdapter.SoundViewHolder>()
 {
     class SoundViewHolder(var binding: ViewSoundBinding): RecyclerView.ViewHolder(binding.root)
@@ -19,18 +18,22 @@ class SoundAdapter (private val sounds: List<SoundProfileEntity>, private val li
     }
 
     override fun getItemCount(): Int {
-        return sounds.size
+        return lessons.size
     }
 
     override fun onBindViewHolder(holder: SoundViewHolder, position: Int) {
         with(holder.binding){
-            soundButton.text = soundButton.context.resources.getStringArray(R.array.sounds)[sounds[position].soundId]
-            if(sounds[position].completion)
-                soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_complete))
-            else
+            soundButton.text = lessons[position].title
+            if(lessons[position].grade == 0)
                 soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_main))
+            else if(lessons[position].grade < 4)
+                soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_bad))
+            else if(lessons[position].grade < 8)
+                soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_medium))
+            else
+                soundButton.setBackgroundColor(soundButton.context.getColor(R.color.button_complete))
             soundButton.setOnClickListener{
-                listener.invoke(sounds[position].soundId)
+                listener(lessons[position].token)
             }
         }
     }

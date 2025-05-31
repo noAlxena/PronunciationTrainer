@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.TeacherGroupCreateFragment">
+    <ImageButton
+        android:id="@+id/arrowback"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FFF1FB"
+        android:src="@drawable/baseline_arrow_back_24" />
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Создание группы"
+        android:textSize="50sp"
+        />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Название"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <Button
+        android:id="@+id/button"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
+        android:text="Создать" />
+</LinearLayout>

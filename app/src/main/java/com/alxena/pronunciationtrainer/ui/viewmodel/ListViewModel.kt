@@ -4,30 +4,32 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alxena.pronunciationtrainer.data.model.SoundDatabase
-import com.alxena.pronunciationtrainer.data.util.SoundCategory
-import com.alxena.pronunciationtrainer.data.util.TestData
+import com.alxena.pronunciationtrainer.data.util.APIInstance
+import com.alxena.pronunciationtrainer.data.util.LessonCategory
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class ListViewModel:ViewModel() {
-
-    val categories: MutableLiveData<ArrayList<SoundCategory>> = MutableLiveData()
-    fun getCategories(context:Context){
-        val db = SoundDatabase.getDatabase(context)
-        val arr = ArrayList<SoundCategory>()
+    val lessons: MutableLiveData<ArrayList<LessonCategory>> = MutableLiveData()
+    fun getLessons(groupToken: String, studentToken: String){
         GlobalScope.launch {
-            var cats = db.SoundProfileDAO().getCategories()
-            if(cats.isEmpty())
+            val categories = APIInstance.service.getCategories(
+                APIInstance.getHeader()).execute().body()
+            if(categories!=null)
             {
-                db.clearAllTables()
-                for(a in TestData.Sounds)
-                    db.SoundProfileDAO().insert(a)
-                cats = db.SoundProfileDAO().getCategories()
+                val cats = ArrayList<LessonCategory>()
+                for(cat in categories)
+                {
+                    val lessons = APIInstance.service.getTopGrades(
+                        APIInstance.getHeader(),
+                        groupToken,
+                        studentToken,
+                        cat.token).execute().body()
+                    if(lessons!=null)
+                        cats.add(LessonCategory(cat.title, cat.difficulty, cat.numColumn, lessons))
+                }
+                lessons.postValue(cats)
             }
-            for(i in cats){
-                arr.add(SoundCategory(i,db.SoundProfileDAO().getSoundsByCategory(i)))
-            }
-            categories.postValue(arr)
         }
     }
 }

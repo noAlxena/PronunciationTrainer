@@ -6,4 +6,145 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragment.InfoFragment" />
+    tools:context=".ui.fragment.InfoFragment" >
+    <ImageButton
+        android:id="@+id/arrowback"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FFF1FB"
+        android:src="@drawable/baseline_arrow_back_24" />
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Информация об аккаунте"
+        android:textSize="40sp"
+        />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Логин"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/textLogin"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sampleLogin" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Имя"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/textFirstName"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sample" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Фамилия"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/textSecondName"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sample" />
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Роль"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/textRole"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sample" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+
+    <TextView
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ключ"
+        android:textSize="35sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textToken"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="XxXxXxXxXx"
+        android:visibility="gone" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textTeacherTokenLabel"
+        style="@style/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ключ преподавателя"
+        android:textSize="35sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textTeacherToken"
+        style="@style/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="XxXxXxXxXx"
+        android:visibility="gone" />
+</LinearLayout>

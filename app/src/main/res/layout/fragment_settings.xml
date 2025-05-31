@@ -7,14 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.fragment.SettingFragment">
-
     <ImageButton
-        android:id="@+id/backhome"
+        android:id="@+id/arrowback"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FFF1FB"
-        android:layout_gravity="right"
-        android:src="@drawable/baseline_cabin_24" />
+        android:src="@drawable/baseline_arrow_back_24" />
 
     <TextView
         android:id="@+id/settings"
@@ -22,8 +20,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/options"
-        android:textSize="50dp"
+        android:textSize="50sp"
         />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/editTextURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textUri"
+        android:text="http://10.0.2.2:5000"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/buttonUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="обновить URL"
+        android:visibility="gone" />
 
     <Space
         android:layout_width="match_parent"

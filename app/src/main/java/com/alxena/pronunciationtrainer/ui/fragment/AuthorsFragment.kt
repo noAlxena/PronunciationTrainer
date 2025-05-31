@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.alxena.pronunciationtrainer.R
 import com.alxena.pronunciationtrainer.databinding.FragmentAuthorsBinding
+
+//authors
 class AuthorsFragment: Fragment() {
     private var _binding: FragmentAuthorsBinding? = null
     private val binding get() = _binding!!
@@ -21,8 +23,8 @@ class AuthorsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backhome.setOnClickListener(){
-            findNavController().navigate(R.id.action_authorsFragment_to_startFragment)
+        binding.arrowback.setOnClickListener(){
+            findNavController().popBackStack()
         }
     }
     override fun onDestroyView() {

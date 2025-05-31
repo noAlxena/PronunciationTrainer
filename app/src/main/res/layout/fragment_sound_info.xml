@@ -16,7 +16,7 @@
         android:src="@drawable/baseline_arrow_back_24" />
 
     <TextView
-        android:id="@+id/soundInfoName"
+        android:id="@+id/textTitle"
         style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/soundInfoText"
+            android:id="@+id/textDesctiption"
             style="@style/main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
