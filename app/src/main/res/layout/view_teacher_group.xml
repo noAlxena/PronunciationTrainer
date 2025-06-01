@@ -23,7 +23,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Пригласить" />
+            android:text="Пригласить"
+            android:textSize="10sp"/>
 
         <Space
             android:layout_width="10dp"
@@ -34,7 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Заявки" />
+            android:text="Заявки"
+            android:textSize="10sp"/>
 
         <Space
             android:layout_width="10dp"
@@ -45,7 +47,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Экспорт" />
+            android:text="Экспорт"
+            android:textSize="10sp"/>
     </LinearLayout>
 
 </LinearLayout>

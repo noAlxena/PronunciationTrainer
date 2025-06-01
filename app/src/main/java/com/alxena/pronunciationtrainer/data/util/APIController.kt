@@ -12,6 +12,7 @@ import com.alxena.pronunciationtrainer.data.model.UserDAO
 import com.alxena.pronunciationtrainer.data.model.GroupLoginDAO
 import com.alxena.pronunciationtrainer.data.model.MessageDAO
 import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -55,8 +56,9 @@ interface APIController {
     fun invited(@Header("Authorization") token: String,
                 @Path("token") groupToken: String): Call<List<StudentDAO>>
 
-    //@GET("/groups/{token}/export")
-    //fun invited(@Path("token") groupToken: String): Call<List<StudentInfo>>
+    @GET("/groups/{token}/export")
+    fun export(@Header("Authorization") token: String,
+                @Path("token") groupToken: String): Call<ResponseBody>
 
     @GET("invite/{itoken}")
     fun checkInvite(@Header("Authorization") token: String,

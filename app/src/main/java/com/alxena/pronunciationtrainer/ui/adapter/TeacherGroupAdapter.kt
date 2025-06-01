@@ -12,7 +12,8 @@ import com.alxena.pronunciationtrainer.databinding.ViewTeacherGroupBinding
 class TeacherGroupAdapter(private val groups: List<GroupDAO>,
                           private val viewListener:(String)->Unit,
                           private val inviteListener:(String)->Unit,
-                          private val invitedListener:(String)->Unit):
+                          private val invitedListener:(String)->Unit,
+                          private val exportListener:(String)->Unit):
     RecyclerView.Adapter<TeacherGroupAdapter.TeacherGroupViewHolder>()
 {
     class TeacherGroupViewHolder(var binding: ViewTeacherGroupBinding): RecyclerView.ViewHolder(binding.root)
@@ -37,6 +38,9 @@ class TeacherGroupAdapter(private val groups: List<GroupDAO>,
             }
             binding.textName.setOnClickListener{
                 viewListener(groups[position].token)
+            }
+            binding.buttonExport.setOnClickListener{
+                exportListener(groups[position].token, groups[position].name)
             }
         }
     }
